@@ -1,0 +1,47 @@
+<?php
+/**
+ * The header for our theme.
+ *
+ * Displays all of the <head> section and everything up till <div id="content">
+ *
+ * @package argent
+ */
+?><!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+<meta charset="<?php bloginfo( 'charset' ); ?>">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.6/slick.css"/>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.6/slick-theme.css"/>
+
+<?php wp_head(); ?>
+</head>
+
+<body <?php body_class(); ?>>
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'argent' ); ?></a>
+
+	<header id="masthead" class="site-header" role="banner">
+
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php _e( 'Menu', 'argent' ); ?></button>
+			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+		</nav><!-- #site-navigation -->
+        
+        <!-- If home page show big logo in center of page, if not don't show shit. -->
+        
+        <?php if( is_home() || is_front_page() ) : ?>
+        <div class="site-branding">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/grandstand-agency-logo-full.png" alt="" width="" height="" />
+		</div>
+		<!-- no header code -->
+		<?php else : ?>
+		<!-- header code -->
+		<?php endif; ?>
+
+	</header><!-- #masthead -->
+
+	<div id="content" class="site-content">
