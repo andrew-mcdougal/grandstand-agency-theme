@@ -21,23 +21,14 @@ else
 function load_custom_script() {
 
     // jQuery
-    wp_enqueue_script( 'jquery-script', get_stylesheet_directory_uri() . '/js/jquery.min.js', array(), '' );
-
-    // Slick slider
-    wp_enqueue_script( 'slick-script', get_stylesheet_directory_uri() . '/js/slick.min.js', array(), '' );
-	
-	wp_enqueue_script( 'equal-heights', get_stylesheet_directory_uri() . '/js/jquery.equalheights.js');
-	//wp_enqueue_script( 'flexslider-js', get_stylesheet_directory_uri() . '/flexslider/jquery.flexslider.js');
-	wp_enqueue_script( 'succinct-js', get_stylesheet_directory_uri() . '/js/jQuery.succinct.js');
-    wp_enqueue_script( 'masonry-js', get_stylesheet_directory_uri() . '/js/masonry.pkgd.js');
-	wp_enqueue_script( 'tabs-js', get_stylesheet_directory_uri() . '/js/jquery.easytabs.js');
-	wp_enqueue_script( 'haschange-js', get_stylesheet_directory_uri() . '/js/jquery.hashchange.min.js');
-	//wp_enqueue_style( 'flexslider-styles', get_stylesheet_directory_uri() . '/flexslider/flexslider.css' );
-	
-
-    
-	
-	wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js?v=5' );
+    wp_enqueue_script( 'jquery-script', get_stylesheet_directory_uri() . '/js/jquery.min.js', '', '', true );
+    wp_enqueue_script( 'slick-script', get_stylesheet_directory_uri() . '/js/slick.min.js', array(), '', true );
+	wp_enqueue_script( 'equal-heights', get_stylesheet_directory_uri() . '/js/jquery.equalheights.js', array(), '', true);
+	wp_enqueue_script( 'succinct-js', get_stylesheet_directory_uri() . '/js/jQuery.succinct.js', array(), '', true);
+    wp_enqueue_script( 'masonry-js', get_stylesheet_directory_uri() . '/js/masonry.pkgd.js', array(), '', true);
+	wp_enqueue_script( 'tabs-js', get_stylesheet_directory_uri() . '/js/jquery.easytabs.js', array(), '', true);
+	wp_enqueue_script( 'haschange-js', get_stylesheet_directory_uri() . '/js/jquery.hashchange.min.js', array(), '', true);
+    wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js?v=5', array(), '', true);
 	
 	wp_enqueue_style( 'fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' );
 
