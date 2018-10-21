@@ -21,6 +21,8 @@
 
 <?php wp_footer(); ?>
 
+<link href="https://fonts.googleapis.com/css?family=Cabin:400,400i,700,700i|Merriweather:300,400,400i|Quicksand:400,700" rel="stylesheet">
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

@@ -1,11 +1,15 @@
 <?php 
-//remove_filter( 'the_content', 'wpautop' );
-//remove_filter( 'the_excerpt', 'wpautop' );
+// load jquery in footer for performance
+if (!is_admin()) add_action("wp_enqueue_scripts", "my_jquery_enqueue", 11);
+function my_jquery_enqueue() {
+   wp_deregister_script('jquery');
+   wp_register_script('jquery', "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js", '', '', true);
+   wp_enqueue_script('jquery');
+}
 
 function filter_ptags_on_images($content){
    return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
 }
-
 add_filter('the_content', 'filter_ptags_on_images');
 
 
@@ -13,15 +17,7 @@ if(false === get_option("medium_crop"))
     add_option("medium_crop", "1");
 else
     update_option("medium_crop", "1");
-	
 
-if (!is_admin()) add_action("wp_enqueue_scripts", "my_jquery_enqueue", 11);
-function my_jquery_enqueue() {
-   wp_deregister_script('jquery');
-   wp_register_script('jquery', "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js", false, null);
-   wp_enqueue_script('jquery');
-}
-	
 /**
  * Proper way to enqueue scripts and styles
  */
@@ -30,35 +26,37 @@ function load_custom_script() {
     // jQuery
     wp_enqueue_script( 'jquery-script', get_stylesheet_directory_uri() . '/js/jquery.min.js', '', '', true );
     wp_enqueue_script( 'slick-script', get_stylesheet_directory_uri() . '/js/slick.min.js', array(), '', true );
-	wp_enqueue_script( 'equal-heights', get_stylesheet_directory_uri() . '/js/jquery.equalheights.js', array(), '', true);
-	wp_enqueue_script( 'succinct-js', get_stylesheet_directory_uri() . '/js/jQuery.succinct.js', array(), '', true);
+    wp_enqueue_script( 'equal-heights', get_stylesheet_directory_uri() . '/js/jquery.equalheights.js', array(), '', true);
+    wp_enqueue_script( 'succinct-js', get_stylesheet_directory_uri() . '/js/jQuery.succinct.js', array(), '', true);
     wp_enqueue_script( 'masonry-js', get_stylesheet_directory_uri() . '/js/masonry.pkgd.js', array(), '', true);
-	wp_enqueue_script( 'tabs-js', get_stylesheet_directory_uri() . '/js/jquery.easytabs.js', array(), '', true);
-	wp_enqueue_script( 'haschange-js', get_stylesheet_directory_uri() . '/js/jquery.hashchange.min.js', array(), '', true);
+    wp_enqueue_script( 'tabs-js', get_stylesheet_directory_uri() . '/js/jquery.easytabs.js', array(), '', true);
+    wp_enqueue_script( 'haschange-js', get_stylesheet_directory_uri() . '/js/jquery.hashchange.min.js', array(), '', true);
     wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js?v=5', array(), '', true);
-	
-	wp_enqueue_style( 'fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' );
+    
+    wp_enqueue_style( 'fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', '', '', true );
 
+    /* all added to custom.scss
     // Slick slider css
-    wp_enqueue_style( 'slick-style', get_stylesheet_directory_uri() . '/css/slick.css', array(), '' );
-    wp_enqueue_style( 'slick-theme-style', get_stylesheet_directory_uri() . '/css/slick-theme.css', array(), '' );
+    //wp_enqueue_style( 'slick-styles', get_stylesheet_directory_uri() . '/css/slick.css', '', '', true );
+    wp_enqueue_style( 'slick-theme-style', get_stylesheet_directory_uri() . '/css/slick-theme.css', '', '', true );
 
     // Skeleton grid
-    wp_enqueue_style( 'skeleton-style', get_stylesheet_directory_uri() . '/css/skeleton-lite.css?v=10', array(), '' );
+    wp_enqueue_style( 'skeleton-style', get_stylesheet_directory_uri() . '/css/skeleton-lite.css?v=10', '', '', true );
 
-    wp_enqueue_style( 'ontrend-styles', get_stylesheet_directory_uri() . '/css/ontrendwebsites2.css?v=4' );
-    wp_enqueue_style( 'custom-styles', get_stylesheet_directory_uri() . '/css/custom.css?v=2' );
+    wp_enqueue_style( 'ontrend-styles', get_stylesheet_directory_uri() . '/css/ontrendwebsites2.css?v=4', '', '', true );
+    wp_enqueue_style( 'custom-styles', get_stylesheet_directory_uri() . '/css/custom.css?v=2', '', '', true );
+    */
+    
+    wp_enqueue_style( 'custom-styles', get_stylesheet_directory_uri() . '/css/custom.css?v=10', '', '', true );
 }
 
 add_action( 'wp_enqueue_scripts', 'load_custom_script' );
-
+    
 // Add class to body for css overriding
 function my_plugin_body_class($classes) {
     $classes[] = 'ontrend';
     return $classes;
 }
-
-
 
 function the_breadcrumb() {
 
@@ -91,7 +89,7 @@ function the_breadcrumb() {
                 
             }
 
-        	
+            
 
             
         } elseif (is_archive() || is_single()){
@@ -133,7 +131,6 @@ function the_breadcrumb() {
 
 function add_last_nav_item($items) {
   return $items .= '<li><a class="nav-email" href="mailto:bookings@grandstandagency.com.au?subject=Email from Grandstand Agency site" target="_blank"><i class="fa fa-envelope"></i> email</a></li>';
-	//return $items .= '<li><a href="tel:+08-9331-7085"><i class="fa fa-phone-square"></i> 08 9331 7085</a></li><li><a class="nav-email" href="mailto:bookings@grandstandagency.com.au?subject=Email from Grandstand Agency site" target="_blank"><i class="fa fa-envelope"></i> email</a></li>';
 }
 add_filter('wp_nav_menu_items','add_last_nav_item');
 
