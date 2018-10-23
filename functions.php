@@ -28,14 +28,31 @@ function load_custom_script() {
 	wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js?v=6', '', '', true ); // custom
 	
     // Styles
-	wp_enqueue_style( 'fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' ); // fontawesome
-    wp_enqueue_style( 'slick-style', get_stylesheet_directory_uri() . '/css/slick.css', array(), '' ); // Slick slider css
-    wp_enqueue_style( 'slick-theme-style', get_stylesheet_directory_uri() . '/css/slick-theme.css', array(), '' ); // Slick slider theme css
-    wp_enqueue_style( 'skeleton-style', get_stylesheet_directory_uri() . '/css/skeleton-lite.css?v=10', array(), '' ); // Skeleton grid
-    wp_enqueue_style( 'ontrend-styles', get_stylesheet_directory_uri() . '/css/ontrendwebsites2.css?v=4' ); // ontrend v 2
-    wp_enqueue_style( 'custom-styles', get_stylesheet_directory_uri() . '/css/custom.css?v=2' ); // custom
+    //wp_enqueue_style( 'slick-style', get_stylesheet_directory_uri() . '/css/slick.css', array(), '' ); // Slick slider css
+    //wp_enqueue_style( 'slick-theme-style', get_stylesheet_directory_uri() . '/css/slick-theme.css', array(), '' ); // Slick slider theme css
+    //wp_enqueue_style( 'skeleton-style', get_stylesheet_directory_uri() . '/css/skeleton-lite.css?v=10', array(), '' ); // Skeleton grid
+    //wp_enqueue_style( 'ontrend-styles', get_stylesheet_directory_uri() . '/css/ontrendwebsites2.css?v=4' ); // ontrend v 2
+    //wp_enqueue_style( 'custom-styles', get_stylesheet_directory_uri() . '/css/custom.css?v=2' ); // custom
+
+    //wp_enqueue_style( 'custom-styles', get_stylesheet_directory_uri() . '/css/combined.css'); // combined all styles
 }
 add_action( 'wp_enqueue_scripts', 'load_custom_script' );
+
+
+// load styles into footer
+function prefix_add_footer_styles() {
+    wp_enqueue_style( 'fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' ); // fontawesome
+    wp_enqueue_style( 'custom-styles', get_stylesheet_directory_uri() . '/css/combined.css'); // combined all styles
+};
+add_action( 'get_footer', 'prefix_add_footer_styles' );
+
+
+
+
+
+
+
+
 
 // Add class to body for css overriding
 function my_plugin_body_class($classes) {

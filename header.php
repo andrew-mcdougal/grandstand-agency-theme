@@ -44,6 +44,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="msapplication-config" content="http://grandstandagency.com.au/favicons/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
 
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,400i,900|Quicksand:400,700" rel="stylesheet"> 
+
 
 <?php wp_head(); ?>
 </head>
