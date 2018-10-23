@@ -18,14 +18,11 @@ else
 function load_custom_script() {
 
     // Load scripts into footer
-    wp_enqueue_script( 'jquery-script', get_stylesheet_directory_uri() . '/js/jquery.min.js', array(), '' ); // jQuery
-    wp_enqueue_script( 'slick-script', get_stylesheet_directory_uri() . '/js/slick.min.js', array(), '' ); // slick slider
-	wp_enqueue_script( 'equal-heights', get_stylesheet_directory_uri() . '/js/jquery.equalheights.js'); // equal heights
-	wp_enqueue_script( 'succinct-js', get_stylesheet_directory_uri() . '/js/jQuery.succinct.js', '', '', true ); // succinct
-    wp_enqueue_script( 'masonry-js', get_stylesheet_directory_uri() . '/js/masonry.pkgd.js', '', '', true ); // masonry
-	wp_enqueue_script( 'tabs-js', get_stylesheet_directory_uri() . '/js/jquery.easytabs.js', '', '', true ); // tabs
-	wp_enqueue_script( 'haschange-js', get_stylesheet_directory_uri() . '/js/jquery.hashchange.min.js', '', '', true ); // hashchange
-	wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js?v=6', '', '', true ); // custom
+    //wp_enqueue_script( 'slick-script', get_stylesheet_directory_uri() . '/js/slick.min.js', array(), '', true ); // slick slider
+	//wp_enqueue_script( 'equal-heights', get_stylesheet_directory_uri() . '/js/jquery.equalheights.js', '', '', true); // equal heights
+	//wp_enqueue_script( 'tabs-js', get_stylesheet_directory_uri() . '/js/jquery.easytabs.js', '', '', true ); // tabs
+	//wp_enqueue_script( 'haschange-js', get_stylesheet_directory_uri() . '/js/jquery.hashchange.min.js', '', '', true ); // hashchange
+	wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js?v=8', '', '', true ); // custom
 	
     // Styles
     //wp_enqueue_style( 'slick-style', get_stylesheet_directory_uri() . '/css/slick.css', array(), '' ); // Slick slider css
