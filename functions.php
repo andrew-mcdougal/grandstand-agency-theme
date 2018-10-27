@@ -1,7 +1,4 @@
 <?php 
-//remove_filter( 'the_content', 'wpautop' );
-//remove_filter( 'the_excerpt', 'wpautop' );
-
 function filter_ptags_on_images($content){
    return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
 }
@@ -13,6 +10,16 @@ if(false === get_option("medium_crop"))
     add_option("medium_crop", "1");
 else
     update_option("medium_crop", "1");
+
+/**
+ * Move jQuery to the footer. 
+ */
+function wpse_173601_enqueue_scripts() {
+    wp_scripts()->add_data( 'jquery', 'group', 1 );
+    wp_scripts()->add_data( 'jquery-core', 'group', 1 );
+    wp_scripts()->add_data( 'jquery-migrate', 'group', 1 );
+}
+add_action( 'wp_enqueue_scripts', 'wpse_173601_enqueue_scripts' );
 	
 	
 /**
@@ -20,39 +27,39 @@ else
  */
 function load_custom_script() {
 
-    // jQuery
-    wp_enqueue_script( 'jquery-script', get_stylesheet_directory_uri() . '/js/jquery.min.js', array(), '' );
-
-    // Slick slider
-    wp_enqueue_script( 'slick-script', get_stylesheet_directory_uri() . '/js/slick.min.js', array(), '' );
+    // Load scripts into footer
+    //wp_enqueue_script( 'slick-script', get_stylesheet_directory_uri() . '/js/slick.min.js', array(), '', true ); // slick slider
+	//wp_enqueue_script( 'equal-heights', get_stylesheet_directory_uri() . '/js/jquery.equalheights.js', '', '', true); // equal heights
+	//wp_enqueue_script( 'tabs-js', get_stylesheet_directory_uri() . '/js/jquery.easytabs.js', '', '', true ); // tabs
+	//wp_enqueue_script( 'haschange-js', get_stylesheet_directory_uri() . '/js/jquery.hashchange.min.js', '', '', true ); // hashchange
+	wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js?v=8', '', '', true ); // custom
 	
-	wp_enqueue_script( 'equal-heights', get_stylesheet_directory_uri() . '/js/jquery.equalheights.js');
-	//wp_enqueue_script( 'flexslider-js', get_stylesheet_directory_uri() . '/flexslider/jquery.flexslider.js');
-	wp_enqueue_script( 'succinct-js', get_stylesheet_directory_uri() . '/js/jQuery.succinct.js');
-    wp_enqueue_script( 'masonry-js', get_stylesheet_directory_uri() . '/js/masonry.pkgd.js');
-	wp_enqueue_script( 'tabs-js', get_stylesheet_directory_uri() . '/js/jquery.easytabs.js');
-	wp_enqueue_script( 'haschange-js', get_stylesheet_directory_uri() . '/js/jquery.hashchange.min.js');
-	//wp_enqueue_style( 'flexslider-styles', get_stylesheet_directory_uri() . '/flexslider/flexslider.css' );
-	
+    // Styles
+    //wp_enqueue_style( 'slick-style', get_stylesheet_directory_uri() . '/css/slick.css', array(), '' ); // Slick slider css
+    //wp_enqueue_style( 'slick-theme-style', get_stylesheet_directory_uri() . '/css/slick-theme.css', array(), '' ); // Slick slider theme css
+    //wp_enqueue_style( 'skeleton-style', get_stylesheet_directory_uri() . '/css/skeleton-lite.css?v=10', array(), '' ); // Skeleton grid
+    //wp_enqueue_style( 'ontrend-styles', get_stylesheet_directory_uri() . '/css/ontrendwebsites2.css?v=4' ); // ontrend v 2
+    //wp_enqueue_style( 'custom-styles', get_stylesheet_directory_uri() . '/css/custom.css?v=2' ); // custom
 
-    
-	
-	wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js?v=5' );
-	
-	wp_enqueue_style( 'fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' );
-
-    // Slick slider css
-    wp_enqueue_style( 'slick-style', get_stylesheet_directory_uri() . '/css/slick.css', array(), '' );
-    wp_enqueue_style( 'slick-theme-style', get_stylesheet_directory_uri() . '/css/slick-theme.css', array(), '' );
-
-    // Skeleton grid
-    wp_enqueue_style( 'skeleton-style', get_stylesheet_directory_uri() . '/css/skeleton-lite.css?v=10', array(), '' );
-
-    wp_enqueue_style( 'ontrend-styles', get_stylesheet_directory_uri() . '/css/ontrendwebsites2.css?v=4' );
-    wp_enqueue_style( 'custom-styles', get_stylesheet_directory_uri() . '/css/custom.css?v=2' );
+    //wp_enqueue_style( 'custom-styles', get_stylesheet_directory_uri() . '/css/combined.css'); // combined all styles
 }
-
 add_action( 'wp_enqueue_scripts', 'load_custom_script' );
+
+
+// load styles into footer
+function prefix_add_footer_styles() {
+    wp_enqueue_style( 'custom-styles', get_stylesheet_directory_uri() . '/css/combined.css', '', '1.1'); // combined all styles
+    wp_enqueue_style( 'fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' ); // fontawesome
+};
+add_action( 'get_footer', 'prefix_add_footer_styles' );
+
+
+
+
+
+
+
+
 
 // Add class to body for css overriding
 function my_plugin_body_class($classes) {
@@ -127,18 +134,16 @@ function the_breadcrumb() {
                 rewind_posts();
             }
         }
-
         echo '</div>';
     }
 }
 
-
+// header email link in nav
 function add_last_nav_item($items) {
   return $items .= '<li><a class="nav-email" href="mailto:bookings@grandstandagency.com.au?subject=Email from Grandstand Agency site" target="_blank"><i class="fa fa-envelope"></i> email</a></li>';
-	//return $items .= '<li><a href="tel:+08-9331-7085"><i class="fa fa-phone-square"></i> 08 9331 7085</a></li><li><a class="nav-email" href="mailto:bookings@grandstandagency.com.au?subject=Email from Grandstand Agency site" target="_blank"><i class="fa fa-envelope"></i> email</a></li>';
+  //return $items .= '<li><a href="tel:+08-9331-7085"><i class="fa fa-phone-square"></i> 08 9331 7085</a></li><li><a class="nav-email" href="mailto:bookings@grandstandagency.com.au?subject=Email from Grandstand Agency site" target="_blank"><i class="fa fa-envelope"></i> email</a></li>';
 }
 add_filter('wp_nav_menu_items','add_last_nav_item');
-
 
 
 if ( function_exists( 'add_image_size' ) ) {
@@ -152,6 +157,4 @@ $addsizes = array(
 $newsizes = array_merge($sizes, $addsizes);
 return $newsizes;
 }
-
-
 ?>

@@ -19,6 +19,8 @@
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,400i,900|Quicksand:400,700" rel="stylesheet">
+
 <?php wp_footer(); ?>
 
 <script>
