@@ -10,6 +10,16 @@ if(false === get_option("medium_crop"))
     add_option("medium_crop", "1");
 else
     update_option("medium_crop", "1");
+
+/**
+ * Move jQuery to the footer. 
+ */
+function wpse_173601_enqueue_scripts() {
+    wp_scripts()->add_data( 'jquery', 'group', 1 );
+    wp_scripts()->add_data( 'jquery-core', 'group', 1 );
+    wp_scripts()->add_data( 'jquery-migrate', 'group', 1 );
+}
+add_action( 'wp_enqueue_scripts', 'wpse_173601_enqueue_scripts' );
 	
 	
 /**
@@ -38,8 +48,8 @@ add_action( 'wp_enqueue_scripts', 'load_custom_script' );
 
 // load styles into footer
 function prefix_add_footer_styles() {
+    wp_enqueue_style( 'custom-styles', get_stylesheet_directory_uri() . '/css/combined.css', '', '1.1'); // combined all styles
     wp_enqueue_style( 'fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' ); // fontawesome
-    wp_enqueue_style( 'custom-styles', get_stylesheet_directory_uri() . '/css/combined.css'); // combined all styles
 };
 add_action( 'get_footer', 'prefix_add_footer_styles' );
 
