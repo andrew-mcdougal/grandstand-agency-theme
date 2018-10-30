@@ -10,7 +10,7 @@
 			<div class="artist-single-image">
 				<span class="artist-thumb">
                 <!-- Thumbnail -->
-                <?php if ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) { the_post_thumbnail( 'full' ); } ?>
+                <?php if ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) { the_post_thumbnail( 'band' ); } ?>
             	</span>
             </div>
 

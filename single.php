@@ -120,6 +120,7 @@ get_header(); ?>
                                     </li>
                                      <?php
                                     endwhile;
+                                    echo '</ul>';
                                 }
                             }
                         } wp_reset_query(); 
