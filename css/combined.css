@@ -3012,20 +3012,16 @@ ul.related-acts li a:hover {
 /* update September 2018 */
 .artist-page.songs {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr; }
-
-.artist-page.songs > p {
-  display: flex;
-  align-items: center;
-  width: auto;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  padding: .25em; }
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 2em; }
+  .artist-page.songs p {
+    display: flex;
+    align-items: start;
+    width: auto;
+    padding: .25em;
+    line-height: 200%; }
 
 @media all and (max-width: 960px) {
-  .artist-page.songs > p {
-    width: 100%;
-    margin: 0; }
-
   .artist-page.songs {
     grid-template-columns: 1fr 1fr; } }
 @media all and (max-width: 680px) {
