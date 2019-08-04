@@ -55,6 +55,12 @@ get_header(); ?>
 							<?php the_field('home_content_2'); ?>
 						</div>
 					</div>
+
+					<div class="row">
+						<div class="columns twelve">
+							<?php the_field('home_content_bottom'); ?>
+						</div>
+					</div>
                 </div>
                 <?php endif; ?>
 			</div>

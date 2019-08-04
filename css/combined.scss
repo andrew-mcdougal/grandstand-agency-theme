@@ -2946,6 +2946,18 @@ ul.related-acts li a:hover {
 
 .entertainment-page .category-pod { margin: 0 10px 40px;}
 
+.category-pod {
+
+  img {
+    border-radius: 5px 5px 0 0;
+  }
+
+  .artist-excerpt {
+    border: 1px solid $black;
+    border-radius: 0 0 5px 5px;
+  }
+}
+
 @media all and (max-width: 990px) {
 
 	.entertainment-page .artist-excerpt {
@@ -3378,25 +3390,21 @@ font-size: 16px;
 .artist-page.songs {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-}
+  grid-column-gap: 2em;
 
-.artist-page.songs > p {
-	display: flex;
-	align-items: center;
-	width: auto;
-	border-bottom: 1px solid rgba(0,0,0,0.2);
-	padding: .25em;
+  p {
+    display: flex;
+    align-items: start;
+    width: auto;
+    padding: .25em;
+    line-height: 200%;
+  }
 }
 
 @media all and (max-width: 960px) {
-	.artist-page.songs > p { 
-		width: 100%;
-		margin: 0;
-	}
-	
-	.artist-page.songs {
-		grid-template-columns: 1fr 1fr;
-	}
+  .artist-page.songs {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media all and (max-width: 680px) {
@@ -3830,6 +3838,10 @@ body {
 
 
 // UI updates March 2018
+.u-hidden-visually {
+  display: none;
+}
+
 .home #main {
 
 	.extra {
@@ -3887,6 +3899,22 @@ body {
 			font-weight: 700;
 		}
 	}
+}
+
+.home-bottom {
+  background: #efefef;
+  padding: 2em;
+
+  input[type="submit"] {
+    border-color: $secondary;
+    color: $secondary;
+    background: $white;
+
+    &:hover {
+      background: $secondary;
+      color: $white;
+    }
+  }
 }
 
 @media all and (max-width: 920px) {
