@@ -3388,16 +3388,21 @@ font-size: 16px;
 
 /* update September 2018 */
 .artist-page.songs {
-	display: grid;
+	/*
+  display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 2em;
+  */
 
   p {
-    display: flex;
-    align-items: start;
-    width: auto;
-    padding: .25em;
+    display: block;
+    padding: 1em;
     line-height: 200%;
+    margin: 0 auto;
+
+    &:nth-child(2n+1) {
+      background: rgba(0,0,0,0.1);
+    }
   }
 }
 

@@ -3017,15 +3017,18 @@ ul.related-acts li a:hover {
     padding: 1em; } }
 /* update September 2018 */
 .artist-page.songs {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 2em; }
+  	/*
+    display: grid;
+  	grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 2em;
+    */ }
   .artist-page.songs p {
-    display: flex;
-    align-items: start;
-    width: auto;
-    padding: .25em;
-    line-height: 200%; }
+    display: block;
+    padding: 1em;
+    line-height: 200%;
+    margin: 0 auto; }
+    .artist-page.songs p:nth-child(2n+1) {
+      background: rgba(0, 0, 0, 0.1); }
 
 @media all and (max-width: 960px) {
   .artist-page.songs {
