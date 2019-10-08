@@ -2542,7 +2542,9 @@ ul.related-acts li a:hover {
     width: 100%; } }
 /* Demo */
 #tabs1-demo .fb_iframe_widget {
-  width: 33% !important; }
+  width: 100% !important;
+  max-width: 490px;
+  margin-bottom: 1.7778em; }
 
 /* Original Acts */
 /* Country Origin */
@@ -3017,9 +3019,9 @@ ul.related-acts li a:hover {
     padding: 1em; } }
 /* update September 2018 */
 .artist-page.songs {
-  	/*
+    /*
     display: grid;
-  	grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 2em;
     */ }
   .artist-page.songs p {

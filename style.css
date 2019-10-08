@@ -9,3 +9,7 @@ Author URI: https://ontrendwebsites.com/
 /*
 @import url("../argent-wpcom/style.css");
 */
+
+.grecaptcha-badge{
+	display: none !important;  
+}
