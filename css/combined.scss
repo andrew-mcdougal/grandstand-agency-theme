@@ -3403,7 +3403,7 @@ font-size: 16px;
     margin: 0 auto;
 
     &:nth-child(2n+1) {
-      background: rgba(0,0,0,0.1);
+      //background: rgba(0,0,0,0.1);
     }
   }
 }
@@ -3967,15 +3967,36 @@ body {
 }
 
 
+// UI updates October 2019
 
+#myInput {
+  display: block;
+  width: 100%;
+  margin-bottom: 1em;
+}
 
+.artist-page.songs p {
+  display: block;
+  padding: .5em 1em;
+  font-size: .8em;
+  width: auto;
+  margin: 0;
+  border-bottom: 1px solid rgba($secondary, .3);
+}
 
+@media all and (max-width: 960px) {
+  .artist-page.songs > p { 
+    width: auto;
+    margin: 10px;
+  }
+}
 
-
-
-
-
-
+@media all and (max-width: 680px) {
+  .artist-page.songs > p { 
+    width: auto;
+    margin: 0;
+  }
+}
 
 
 

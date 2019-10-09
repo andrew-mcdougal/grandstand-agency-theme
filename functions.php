@@ -32,7 +32,7 @@ function load_custom_script() {
 	//wp_enqueue_script( 'equal-heights', get_stylesheet_directory_uri() . '/js/jquery.equalheights.js', '', '', true); // equal heights
 	//wp_enqueue_script( 'tabs-js', get_stylesheet_directory_uri() . '/js/jquery.easytabs.js', '', '', true ); // tabs
 	//wp_enqueue_script( 'haschange-js', get_stylesheet_directory_uri() . '/js/jquery.hashchange.min.js', '', '', true ); // hashchange
-	wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js?v=8', '', '', true ); // custom
+	wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js?v=9', '', '', true ); // custom
 	
     // Styles
     //wp_enqueue_style( 'slick-style', get_stylesheet_directory_uri() . '/css/slick.css', array(), '' ); // Slick slider css
