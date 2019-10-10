@@ -32,7 +32,7 @@ function load_custom_script() {
 	//wp_enqueue_script( 'equal-heights', get_stylesheet_directory_uri() . '/js/jquery.equalheights.js', '', '', true); // equal heights
 	//wp_enqueue_script( 'tabs-js', get_stylesheet_directory_uri() . '/js/jquery.easytabs.js', '', '', true ); // tabs
 	//wp_enqueue_script( 'haschange-js', get_stylesheet_directory_uri() . '/js/jquery.hashchange.min.js', '', '', true ); // hashchange
-	wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js?v=8', '', '', true ); // custom
+	wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js?v=9', '', '', true ); // custom
 	
     // Styles
     //wp_enqueue_style( 'slick-style', get_stylesheet_directory_uri() . '/css/slick.css', array(), '' ); // Slick slider css
@@ -48,7 +48,7 @@ add_action( 'wp_enqueue_scripts', 'load_custom_script' );
 
 // load styles into footer
 function prefix_add_footer_styles() {
-    wp_enqueue_style( 'custom-styles', get_stylesheet_directory_uri() . '/css/combined.css', '', '1.3'); // combined all styles
+    wp_enqueue_style( 'custom-styles', get_stylesheet_directory_uri() . '/css/combined.css', '', '1.2'); // combined all styles
     wp_enqueue_style( 'fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' ); // fontawesome
 };
 add_action( 'get_footer', 'prefix_add_footer_styles' );

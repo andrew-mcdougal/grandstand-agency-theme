@@ -44,7 +44,33 @@ get_header(); ?>
                 <?php if( get_field('songs') ): ?>
                 <div id="tabs1-songs" class="tab-content">
                     <article class="artist-page songs">
+
+<script>
+// search songlist
+function searchSongs() {
+  // Declare variables
+  var input, filter, ul, songPara, a, i, txtValue;
+  input = document.getElementById('myInput');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myUL");
+  songPara = ul.getElementsByTagName('p');
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < songPara.length; i++) {
+    a = songPara[i];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      songPara[i].style.display = "";
+    } else {
+      songPara[i].style.display = "none";
+    }
+  }
+}
+</script>
+<input type="text" id="myInput" onkeyup="searchSongs()" placeholder="Search for song names or artists..">
+<div id="myUL">
                         <?php the_field('songs'); ?>
+</div>
                     </article>
                 </div>
                 <?php endif; ?>

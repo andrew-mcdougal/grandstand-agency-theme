@@ -2542,7 +2542,9 @@ ul.related-acts li a:hover {
     width: 100%; } }
 /* Demo */
 #tabs1-demo .fb_iframe_widget {
-  width: 33% !important; }
+  width: 33% !important;
+  max-width: 490px;
+  margin-bottom: 1.7778em; }
 
 /* Original Acts */
 /* Country Origin */
@@ -3017,15 +3019,16 @@ ul.related-acts li a:hover {
     padding: 1em; } }
 /* update September 2018 */
 .artist-page.songs {
+  /*
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 2em; }
+  grid-column-gap: 2em;
+  */ }
   .artist-page.songs p {
-    display: flex;
-    align-items: start;
-    width: auto;
-    padding: .25em;
-    line-height: 200%; }
+    display: block;
+    padding: 1em;
+    line-height: 200%;
+    margin: 0 auto; }
 
 @media all and (max-width: 960px) {
   .artist-page.songs {
@@ -3361,5 +3364,27 @@ body {
 @media all and (max-width: 767px) {
   .site-header .main-navigation ul li {
     padding: 0; } }
+#myInput {
+  display: block;
+  width: 100%;
+  margin-bottom: 1em; }
+
+.artist-page.songs p {
+  display: block;
+  padding: .5em 1em;
+  font-size: .8em;
+  width: auto;
+  margin: 0;
+  border-bottom: 1px solid rgba(226, 51, 80, 0.3);
+  line-height: 120%; }
+
+@media all and (max-width: 960px) {
+  .artist-page.songs > p {
+    width: auto;
+    margin: 10px; } }
+@media all and (max-width: 680px) {
+  .artist-page.songs > p {
+    width: auto;
+    margin: 0; } }
 
 /*# sourceMappingURL=combined.css.map */
