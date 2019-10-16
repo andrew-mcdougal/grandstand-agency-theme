@@ -2898,13 +2898,17 @@ ul.related-acts li a:hover {
   grid-gap: 0; }
 
 .artist-single-image {
-  margin-bottom: 1em; }
+  margin-bottom: 1em;
+  min-height: 200px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center; }
 
-@media (min-width: 767px) {
+@media (min-width: 500px) {
   .artist-single {
     display: grid;
-    grid-template-columns: .5fr 1fr;
-    grid-gap: 2em; }
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em; }
 
   .artist-single-content {
     display: flex;

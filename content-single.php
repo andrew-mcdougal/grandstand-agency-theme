@@ -5,12 +5,22 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" class="artist-page">
+    <!-- if has featured -->
+    <?php
+
+    if(has_post_thumbnail()) {
+        $feat_image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "full", true);
+    } else {
+
+    }
+    ?>
+
 		
 		<div class="entry-content artist-single">
-			<div class="artist-single-image">
+			<div class="artist-single-image" style="background-image:url(<?php echo (($feat_image[0]))?>);">
 				<span class="artist-thumb">
                 <!-- Thumbnail -->
-                <?php if ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) { the_post_thumbnail( 'band' ); } ?>
+                
             	</span>
             </div>
 
