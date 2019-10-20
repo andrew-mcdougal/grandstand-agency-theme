@@ -3247,6 +3247,9 @@ ul.related-acts li a:hover {
   .category-pod .grabber { height: auto!important;}
 }
 
+
+
+// artist band single page
 .artist-single {
   display: grid;
   grid-template-columns: 1fr;
@@ -3255,13 +3258,17 @@ ul.related-acts li a:hover {
 
 .artist-single-image {
   margin-bottom: 1em;
+  min-height: 200px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
 }
 
-@media (min-width:767px) {
+@media (min-width:500px) {
   .artist-single {
     display: grid;
-    grid-template-columns: .5fr 1fr;
-    grid-gap: 2em;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
   }
 
   .artist-single-content {
