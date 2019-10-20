@@ -9,21 +9,13 @@
     <?php
 
     if(has_post_thumbnail()) {
-        $feat_image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "full", true);
-    } else {
-
+        $feat_image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "medium_large", true);
     }
     ?>
 
 		
 		<div class="entry-content artist-single">
-			<div class="artist-single-image" style="background-image:url(<?php echo (($feat_image[0]))?>);">
-				<span class="artist-thumb">
-                <!-- Thumbnail -->
-                
-            	</span>
-            </div>
-
+			<div class="artist-single-image" style="background-image:url(<?php echo (($feat_image[0]))?>);"></div>
             <div class="artist-single-content">
             	<!-- Country (if used) -->
             	<?php if( get_field('country') ): ?>
