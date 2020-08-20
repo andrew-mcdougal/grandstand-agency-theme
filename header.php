@@ -105,12 +105,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<ul class="category-links">
 
 			<?php
-			$othercategories = get_category('54');
+			$count = '';
+
+			$category1 = get_category('1094');
+			$category2 = get_category('1095');
+			$category3 = get_category('1096');
+			$category4 = get_category('1097');
+			$category5 = get_category('1098');
+
+			$count = $category1->category_count + $category2->category_count + $category3->category_count + $category4->category_count + $category5->category_count;
+
 			$othernumber = $othercategories->category_count;
 			$categories = get_categories( array(
 				'orderby' => 'menu_order',
 				'order'   => 'ASC',
-				'exclude'	=> '54'
+				'exclude'	=> '54, 1094, 1095, 1096, 1097, 1098'
 			) );
 			
 			foreach( $categories as $category ) {
@@ -123,7 +132,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 				echo '<li>' . sprintf( esc_html__( '%s', 'textdomain' ), $category_link ) . '</li> ';
 			} ?>
-			<li><a href="#">Other Entertainment <span class="post-count"><?php echo $othernumber ?></span></a></li>
+			<li><a href="#">Other Entertainment <span class="post-count"><?php echo $count; ?></span></a></li>
 
 			</ul>
 		</div>
