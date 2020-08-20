@@ -132,7 +132,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 				echo '<li>' . sprintf( esc_html__( '%s', 'textdomain' ), $category_link ) . '</li> ';
 			} ?>
-			<li><a href="#">Other Entertainment <span class="post-count"><?php echo $count; ?></span></a></li>
+			<li><a href="/other-entertainment">Other Entertainment <span class="post-count"><?php echo $count; ?></span></a></li>
 
 			</ul>
 		</div>
