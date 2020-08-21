@@ -112,14 +112,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			$category3 = get_category('1096');
 			$category4 = get_category('1097');
 			$category5 = get_category('1098');
+			$category6 = get_category('1159');
 
-			$count = $category1->category_count + $category2->category_count + $category3->category_count + $category4->category_count + $category5->category_count;
+			$count = $category1->category_count + $category2->category_count + $category3->category_count + $category4->category_count + $category5->category_count + $category6->category_count;
 
 			$othernumber = $othercategories->category_count;
 			$categories = get_categories( array(
 				'orderby' => 'menu_order',
 				'order'   => 'ASC',
-				'exclude'	=> '54, 1094, 1095, 1096, 1097, 1098'
+				'exclude'	=> '54, 1094, 1095, 1096, 1097, 1098, 1159'
 			) );
 			
 			foreach( $categories as $category ) {
