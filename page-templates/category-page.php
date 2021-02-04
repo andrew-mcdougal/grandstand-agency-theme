@@ -19,7 +19,7 @@ get_header(); ?>
         'hide_empty'  => '0',
         'orderby'     => 'menu_order',
         'order'       => 'ASC',
-        'exclude'     => '1094, 1095, 1096, 1097, 1098, 1159'
+        'exclude'     => '1094, 1095, 1096, 1097, 1098, 1159, 54'
       );
       $categories = get_categories($args);
       
