@@ -32,7 +32,7 @@ function load_custom_script() {
 	//wp_enqueue_script( 'equal-heights', get_stylesheet_directory_uri() . '/js/jquery.equalheights.js', '', '', true); // equal heights
 	//wp_enqueue_script( 'tabs-js', get_stylesheet_directory_uri() . '/js/jquery.easytabs.js', '', '', true ); // tabs
 	//wp_enqueue_script( 'haschange-js', get_stylesheet_directory_uri() . '/js/jquery.hashchange.min.js', '', '', true ); // hashchange
-	wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js?v=9', '', '', true ); // custom
+	wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js', '', true ); // custom
 	
     // Styles
     //wp_enqueue_style( 'slick-style', get_stylesheet_directory_uri() . '/css/slick.css', array(), '' ); // Slick slider css
@@ -48,7 +48,7 @@ add_action( 'wp_enqueue_scripts', 'load_custom_script' );
 
 // load styles into footer
 function prefix_add_footer_styles() {
-    wp_enqueue_style( 'custom-styles', get_stylesheet_directory_uri() . '/css/combined.css', '', '1.2'); // combined all styles
+    wp_enqueue_style( 'custom-styles', get_stylesheet_directory_uri() . '/css/combined.css?v=1', '', '1.3'); // combined all styles
     wp_enqueue_style( 'fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' ); // fontawesome
 };
 add_action( 'get_footer', 'prefix_add_footer_styles' );
@@ -140,8 +140,7 @@ function the_breadcrumb() {
 
 // header email link in nav
 function add_last_nav_item($items) {
-  return $items .= '<li><a class="nav-email" href="mailto:bookings@grandstandagency.com.au?subject=Email from Grandstand Agency site" target="_blank"><i class="fa fa-envelope"></i> email</a></li>';
-  //return $items .= '<li><a href="tel:+08-9331-7085"><i class="fa fa-phone-square"></i> 08 9331 7085</a></li><li><a class="nav-email" href="mailto:bookings@grandstandagency.com.au?subject=Email from Grandstand Agency site" target="_blank"><i class="fa fa-envelope"></i> email</a></li>';
+  return $items .= '<li><a class="nav-email" href="mailto:bookings@grandstandagency.com.au?subject=Email from Grandstand Agency site" target="_blank"><img src="' . get_stylesheet_directory_uri() . '/assets/svg/music.svg"> Contact</a></li>';
 }
 add_filter('wp_nav_menu_items','add_last_nav_item');
 
