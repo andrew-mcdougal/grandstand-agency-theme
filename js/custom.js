@@ -131,24 +131,32 @@ const mobileSearch = () => {
   const searchButton = document.querySelector('.header-wrapper .search-form-submit');
   const homeLogo = document.querySelector('.header-home-logo');
 
-  searchButton.addEventListener('click', function(event) {
-    
-    if ( searchForm.classList.contains('search-open') ) {
-      homeLogo.style.display = '';
-      searchForm.classList.remove('search-open');
-    } else {
-      event.preventDefault();
-      homeLogo.style.display = 'none';
-      searchForm.classList.add('search-open');
-    }
+  // run if below 900px
+  if (window.innerWidth < 1040) {
 
-  });
+    searchButton.addEventListener('click', function(event) {
+      
+      if ( searchForm.classList.contains('search-open') ) {
+        homeLogo.style.display = '';
+        searchForm.classList.remove('search-open');
+      } else {
+        event.preventDefault();
+        homeLogo.style.display = 'none';
+        searchForm.classList.add('search-open');
+      }
+
+    });
+  }
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
   console.log('DOM fully loaded and parsed');
   mobileSearch();
 });
+
+
+
+
 
   
 

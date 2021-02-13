@@ -94,38 +94,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>Search</p>
         </button>
       </form>
-
-      <!-- entertainment menu -->
-      <div class="header-menu-large header-element">
-        <p>Browse Entertainment <i class="fa fa-chevron-down"></i></p>
-        <div class="entertainment-menu">
-
-          <?php
-
-              hierarchical_category_tree( 0 ); // the function call; 0 for all categories; or cat ID  
-
-          function hierarchical_category_tree( $cat ) {
-              // wpse-41548 // alchymyth // a hierarchical list of all categories //
-
-            $next = get_categories('hide_empty=false&orderby=name&order=ASC&parent=' . $cat);
-
-            if( $next ) :    
-              foreach( $next as $cat ) :
-              echo '<ul><li><a href="' . get_category_link( $cat->term_id ) . '" title="' . sprintf( __( "View all acts in %s" ), $cat->name ) . '" ' . '>' . $cat->name . '</a>';
-              ; 
-              hierarchical_category_tree( $cat->term_id );
-              endforeach;    
-            endif;
-
-            echo '</li></ul>'; echo "\n";
-          }  
-          ?>
-        </div>
-
-
-      </div>
     </div>
   </header><!-- #masthead -->
+  <!-- entertainment menu -->
+  <div class="header-menu-bottom-wrapper">
+    <div class="header-menu-large header-element">
+      <p>Browse Entertainment <i class="fa fa-chevron-down"></i></p>
+      <div class="entertainment-menu">
+
+        <?php
+        hierarchical_category_tree( 0 ); // the function call; 0 for all categories; or cat ID  
+
+        function hierarchical_category_tree( $cat ) {
+          $next = get_categories('hide_empty=false&orderby=name&order=ASC&parent=' . $cat);
+
+          if( $next ) :    
+            foreach( $next as $cat ) :
+            echo '<ul><li><a href="' . get_category_link( $cat->term_id ) . '" title="' . sprintf( __( "View all acts in %s" ), $cat->name ) . '" ' . '>' . $cat->name . '</a>';
+            ; 
+            hierarchical_category_tree( $cat->term_id );
+            endforeach;    
+          endif;
+
+          echo '</li></ul>'; echo "\n";
+        }  
+        ?>
+      </div>
+    </div>
+  </div>
 
   
 
