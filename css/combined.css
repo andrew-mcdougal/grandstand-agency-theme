@@ -276,10 +276,10 @@ q {
   quotes: "" ""; }
 
 hr {
-  background-color: #ccc;
+  background-color: #E23350;
   border: 0;
   height: 1px;
-  margin-bottom: 1.7778em; }
+  margin: 2.5em 0; }
 
 ul,
 ol {
@@ -3355,24 +3355,14 @@ body {
   height: auto;
   margin: auto;
   gap: .5em;
-  padding: 1em 0;
+  padding: .5em 0;
   display: grid;
-  grid-template-columns: 1fr auto auto;
-  /*
-  Mobile:
-  logo | search | main nav
-  entertainment menu
-
-  Desktop:  
-  logo | main nav | search
-  entertainment menu
-  */ }
+  grid-template-columns: 1fr auto auto; }
   .header-wrapper .header-element {
     margin: auto; }
   .header-wrapper .header-home-logo {
     display: flex;
     align-items: center;
-    gap: .25em;
     font-family: "Quicksand", sans-serif;
     color: #000000;
     font-weight: 600;
@@ -3381,7 +3371,8 @@ body {
     margin: auto 0; }
     .header-wrapper .header-home-logo img {
       width: 35px;
-      height: 28px; }
+      height: 28px;
+      margin-right: .25em; }
   .header-wrapper .header-search {
     grid-area: 1 / 2 / 1 / 3;
     padding: 0;
@@ -3496,7 +3487,7 @@ body {
         border-radius: 0; } }
 
 .header-menu-bottom-wrapper {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.75);
   position: absolute;
   width: 100%;
   z-index: 10; }
@@ -3519,7 +3510,6 @@ body {
     max-height: 0px;
     transition: all .3s ease;
     display: flex;
-    gap: 2em;
     flex-wrap: wrap; }
     .header-menu-large .entertainment-menu ul {
       list-style-type: none;
@@ -3533,7 +3523,8 @@ body {
       .header-menu-large .entertainment-menu ul ul li {
         text-transform: initial; }
     .header-menu-large .entertainment-menu > ul {
-      margin: 1em 0 .5em; }
+      margin: 1em .5em;
+      padding-right: 2em; }
       .header-menu-large .entertainment-menu > ul > li > a {
         color: #E23350;
         font-weight: 600;
@@ -3558,5 +3549,114 @@ body {
   background-position: center;
   width: 100%;
   height: 100%; }
+
+.home-event-select {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .home-event-select p {
+    color: #FFFFFF;
+    font-size: 2em;
+    margin: 0;
+    font-weight: 600;
+    padding-bottom: .5em; }
+  .home-event-select select {
+    margin-bottom: .8em;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    font-weight: 500;
+    background: #E23350;
+    color: #FFFFFF;
+    padding: .5em;
+    border: none;
+    border-radius: 10px;
+    padding-right: 3em;
+    background-image: url("../assets/svg/chevron-down.svg");
+    background-position: right 15px top 16px;
+    background-repeat: no-repeat;
+    background-size: 25px; }
+
+.more-content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 10vh;
+  text-align: center;
+  cursor: pointer;
+  color: #242424;
+  opacity: .8; }
+  .more-content:hover {
+    opacity: 1; }
+
+.home-content h2, .home-content h3 {
+  text-align: center;
+  font-size: 1.1em; }
+.home-content p {
+  text-align: center; }
+@media screen and (min-width: 768px) {
+  .home-content h2 {
+    font-size: 3.6rem; }
+  .home-content h3 {
+    font-size: 3.2rem; } }
+
+.grecaptcha-badge {
+  display: none; }
+
+#main img {
+  border-radius: 5px; }
+
+@media screen and (min-width: 768px) {
+  .grid-layout {
+    display: grid; } }
+
+.grid-layout--two-columns-half {
+  grid-template-columns: 1fr 1fr; }
+
+.grid-layout--gap-1 {
+  gap: 1em; }
+
+.grid-layout--gap-2 {
+  gap: 2em; }
+
+.margin-bottom-base {
+  margin-bottom: 1rem; }
+
+h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
+  color: #E23350; }
+
+.wpcf7-form label {
+  font-weight: 600;
+  margin-bottom: .5em;
+  display: block;
+  text-align: left; }
+.wpcf7-form .wpcf7-radio {
+  display: flex;
+  flex-direction: column; }
+  .wpcf7-form .wpcf7-radio .wpcf7-list-item {
+    display: flex;
+    margin: 0; }
+    .wpcf7-form .wpcf7-radio .wpcf7-list-item input {
+      width: auto; }
+
+.button,
+input[type="submit"] {
+  display: block;
+  width: 100%;
+  background: #FFFFFF;
+  color: #E23350;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.5em;
+  font-weight: 600;
+  height: auto; }
+  .button:hover,
+  input[type="submit"]:hover {
+    background: #E23350;
+    color: #FFFFFF; }
+  .button.submit-button-red,
+  input[type="submit"].submit-button-red {
+    background: #E23350;
+    color: #FFFFFF; }
 
 /*# sourceMappingURL=combined.css.map */

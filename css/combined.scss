@@ -288,10 +288,10 @@ q {
   quotes: "" "";
 }
 hr {
-  background-color: #ccc;
+  background-color: $secondary;
   border: 0;
   height: 1px;
-  margin-bottom: 1.7778em;
+  margin: 2.5em 0;
 }
 ul,
 ol {
@@ -3978,20 +3978,10 @@ body {
   height: auto;
   margin: auto;
   gap: .5em;
-  padding: 1em 0;
+  padding: .5em 0;
   
   display: grid;
   grid-template-columns: 1fr auto auto;
-
-  /*
-  Mobile:
-  logo | search | main nav
-  entertainment menu
-
-  Desktop:  
-  logo | main nav | search
-  entertainment menu
-  */
 
   .header-element {
     margin: auto;
@@ -4001,7 +3991,6 @@ body {
   .header-home-logo {
     display: flex;
     align-items: center;
-    gap: .25em;
     font-family: $font-heading;
     color: $black;
     font-weight: 600;
@@ -4012,6 +4001,7 @@ body {
     img {
       width: 35px;
       height: 28px;
+      margin-right: .25em;
     }
   }
 
@@ -4196,7 +4186,7 @@ body {
 
 // entertainment menu
 .header-menu-bottom-wrapper {
-  background: rgba(0,0,0,.8);
+  background: rgba(0,0,0,.75);
   position: absolute;
   width: 100%;
   z-index: 10;
@@ -4224,7 +4214,6 @@ body {
     transition: all .3s ease;
 
     display: flex;
-    gap: 2em;
     flex-wrap: wrap;
 
     ul {
@@ -4256,7 +4245,8 @@ body {
     // parent unordered lists
     > ul {
       //display: inline-flex;
-      margin: 1em 0 .5em;
+      margin: 1em .5em;
+      padding-right: 2em;
 
       > li {
 
@@ -4299,18 +4289,163 @@ body {
   height: 100%;
 }
 
+.home-event-select {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    color: $white;
+    font-size: 2em;
+    margin: 0;
+    font-weight: 600;
+    padding-bottom: .5em;
+  }
+
+  select {
+    margin-bottom: .8em;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    font-weight: 500;
+    background: $secondary;
+    color: $white;
+    padding: .5em;
+    border: none;
+    border-radius: 10px;
+    padding-right: 3em;
+
+    background-image: url('../assets/svg/chevron-down.svg');
+    background-position: right 15px top 16px;
+    background-repeat: no-repeat;
+    background-size: 25px;
+  }
+}
+
+.more-content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 10vh;
+  text-align: center;
+  cursor: pointer;
+  color: $grey;
+  opacity: .8;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.home-content {
+
+  h2, h3 {
+    text-align: center;
+    font-size: 1.1em;
+  }
+
+  p { text-align: center }
+
+  @media screen and (min-width: 768px) {
+    h2 {
+      font-size: 3.6rem;
+    }
+
+    h3 {
+      font-size: 3.2rem;
+    }
+  }
+}
+
+.grecaptcha-badge {
+  display: none;
+}
 
 
+// updates
 
+#main {
 
+  img {
+    border-radius: 5px;
+  }
+}
 
+.grid-layout {
 
+  @media screen and (min-width: 768px) {
+    display: grid;
+  }
+}
 
+.grid-layout--two-columns-half {
+  grid-template-columns: 1fr 1fr;
+}
 
+.grid-layout--reverse {
 
+}
 
+.grid-layout--gap-1 { gap: 1em; }
+.grid-layout--gap-2 { gap: 2em; }
 
+.margin-bottom-base {
+  margin-bottom: 1rem;
+}
 
+h1, h2, h3, h4, h5, h6 {
+
+  span {
+    color: $secondary;
+  }
+}
+
+.wpcf7-form {
+
+  label {
+    font-weight: 600;
+    margin-bottom: .5em;
+    display: block;
+    text-align: left;
+  }
+
+  .wpcf7-radio {
+    display: flex;
+    flex-direction: column;
+
+    .wpcf7-list-item {
+      display: flex;
+      margin: 0;
+
+      input {
+        width: auto;
+      }
+    }
+  }
+}
+
+.button,
+input[type="submit"] {
+  display: block;
+  width: 100%;
+  background: $white;
+  color: $secondary;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.5em;
+  font-weight: 600;
+  height: auto;
+
+  &:hover {
+    background: $secondary;
+    color: $white;
+  }
+
+  &.submit-button-red {
+    background: $secondary;
+    color: $white;
+  }
+}
 
 
 

@@ -73,7 +73,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <header id="masthead" class="site-header" role="banner">
     <div class="header-wrapper">
       <!-- logo -->
-      <a class="header-home-logo header-element" href="<?php home_url(); ?>">
+      <a class="header-home-logo header-element" href="<?php echo get_home_url(); ?>">
         <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/svg/grandstand-logo.svg"><span>Grandstand Agency</span>
       </a>
 
