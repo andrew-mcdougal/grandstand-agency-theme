@@ -5,67 +5,61 @@
  * @package Argent
  */
 get_header(); ?>
-	<div id="primary" class="content-area home-page">
-		<main id="main" class="site-main" role="main">
-		<?php while ( have_posts() ) : the_post(); ?>
+  <div class="background-image-fade-wrapper">
+    <div 
+      class="background-image-fade" 
+      style="
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 20%, rgba(255, 255, 255, 1)), url('<?php echo get_the_post_thumbnail_url( get_the_ID() ); ?>')"
+      >
+      </div>
 
-			<div class="page-content">
-				<?php if ( '' != get_the_content() ) : ?>
-			
-				<div class="welcome-text">
-					<?php the_content(); ?>
-					<div class="row">
-						<div class="columns twelve">
-							<?php the_field('home_content'); ?>
-						</div>
-					</div>
-					<!-- slider -->
-					<div class="row secondary-container">
-						<div class="columns six">
-							<!-- Slider ACF Repeater -->
-						    <?php if( have_rows('slider') ): ?>
+      <div class="home-event-select">
+        <p>Show me</p>
+        <form id="category-select" class="category-select" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
+          <?php
+          $args = array(
+              'orderby'       => 'name',
+              'echo'          => 0,
+              'hierarchical'  => 1,
+              'depth'         => 1,
+          );
+       
+          $select  = wp_dropdown_categories( $args );
+          $replace = "<select$1 onsubmit='return this.form.submit()'>"; 
+          $select  = preg_replace( '#<select([^>]*)>#', $replace, $select );
 
-							<ul class="home-slides">
+          echo $select; 
+          ?>
 
-							<?php while( have_rows('slider') ): the_row(); 
+          <button class="button" type="submit">Go</button>  
+        </form>
 
-								// vars
-								$image = get_sub_field('image');
-								$medium_image = 'medium';
-								$image_display = wp_get_attachment_image_src( $attachment_id, $medium_image );
-								$detail = get_sub_field('detail');
-								?>
+        <a href="#home-welcome" class="more-content">
+          <i class="fa fa-chevron-down"></i>
+          more
+        </a>
+      </div>
 
-								<li class="slider-single">
-									<div class="image-container">
-										<img class="slide-image" src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" title="<?php echo $image['alt']; ?>" />
-										<p><?php echo $detail; ?></p>
-									</div>
-								</li>
 
-							<?php endwhile; ?>
+  </div>
+  <div id="primary" class="content-area home-page">
+    <main id="main" class="site-main" role="main">
+    
+    <?php while ( have_posts() ) : the_post(); ?>
+      <div class="page-content">
+        <div class="row">
+          <div class="columns twelve home-content home-content-1">
+            <?php the_field('home_content', false, false); ?>
+          </div>
+        </div>
+        <div class="row">
+          <div class="columns twelve home-content home-content-2">
+            <?php the_field('home_content_bottom'); ?>
+          </div>
+        </div>
+      </div>
 
-							</ul>
-
-							<?php endif; ?>
-							<!-- End Slider ACF Repeater -->
-						</div>
-						<!-- secondary content -->
-						<div class="columns six secondary-content">
-							<?php the_field('home_content_2'); ?>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="columns twelve">
-							<?php the_field('home_content_bottom'); ?>
-						</div>
-					</div>
-                </div>
-                <?php endif; ?>
-			</div>
-
-		<?php endwhile; // end of the loop. ?>
-		</main><!-- #main -->
-	</div><!-- #primary -->
+    <?php endwhile; // end of the loop. ?>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 <?php get_footer(); ?>
