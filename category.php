@@ -9,78 +9,45 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
         
-        
-        
-		<?php if ( have_posts() ) :
-        
-        // Setup banner image
-		
-		?>
-        <header class="category-header-container row">
-			<div class="columns eight">
-				<h1 class="page-title">
-            		<?php single_cat_title(); ?>
-            	</h1>
-				<?php the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?>
-			</div>
-			<div class="columns four">
-			<?php 
-				// get the current taxonomy term
-				$term = get_queried_object();
+    <?php if ( have_posts() ) : ?>
 
-
-				// vars
-				$image = get_field('banner', $term);
-				$alt = get_field('alt_text', $term);
-				echo '<img src="' . $image['url'] . '" alt="' . $alt . '" title="' . $alt . '" />';
-			?>
-			</div>
-		</header><!-- .page-header -->
-
-			<?php if ( is_post_type_archive( 'jetpack-portfolio' ) || is_tax( 'jetpack-portfolio-type' ) || is_tax( 'jetpack-portfolio-tag' ) ) : ?>
-
-				<div id="portfolio-wrapper">
-
-					<?php /* Start the Loop */ ?>
-					<?php while ( have_posts() ) : the_post(); ?>
-
-						<?php get_template_part( 'content', 'portfolio' ); ?>
-
-					<?php endwhile; ?>
-
-				</div><!-- .portfolio-wrapper -->
-
-			<?php else : ?>
-
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
-
-					<?php
-						/* Include the Post-Format-specific template for the content.
-						 * If you want to override this in a child theme, then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'content', get_post_format() );
-						
-						?>
-                        
-
-				<?php endwhile; ?>
-
-			<?php endif; ?>
-
-				<?php the_posts_navigation(); ?>
-
-			<?php else : ?>
-
-			<?php get_template_part( 'content', 'none' ); ?>
-
-		<?php endif; ?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
+      <header class="category-header-wrapper">
+        <h1 class="page-title"><?php single_cat_title(); ?></h1>
+        <div class="category-page-category-list">
+          <?php wp_list_categories('orderby=name&title_li=');?>
+        </div>
+        <hr class="hr-grey hr-small" />
+        <div class="grid-layout grid-layout--two-columns-2-1 .grid-layout--gap-2">
+          <?php the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?>
+          <?php 
+            // get the current taxonomy term
+            $term = get_queried_object();
+            // vars
+            $image = get_field('banner', $term);
+            $alt = get_field('alt_text', $term);
+            echo '<img src="' . $image['url'] . '" alt="' . $alt . '" title="' . $alt . '" />';
+          ?>
+          <p><a href="#acts-wrapper">Scroll down to see our <?php single_cat_title(); ?></a></p>
+        </div>
+      </header><!-- .page-header -->
+      <hr />
+      <?php /* Start the Loop */ ?>
+      <div id="acts-wrapper">
+        <h4><?php single_cat_title(); ?> for hire</h4>
+        <div class="acts-wrapper-inner">
+          <?php while ( have_posts() ) : the_post();
+          get_template_part( 'content', get_post_format() );
+          endwhile;
+          ?>
+        </div>
+      </div>
+      <?php the_posts_navigation(); ?>
+      <?php else : ?>
+      <?php get_template_part( 'content', 'none' ); ?>
+    <?php endif; ?>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 <?php get_footer(); ?>
