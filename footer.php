@@ -7,45 +7,16 @@
  * @package Argent
  */
 ?>
-<div id="secondary" class="footer-widget-area widget-area" role="complementary">
-  <h1 class="widget-title">Entertainment quick links</h1>
-  <div class="widget-wrapper">
-    <ul class="widget_categories" style="list-style-type: none;">
-      <?php
-      $count = '';
-
-      $category1 = get_category('1094');
-      $category2 = get_category('1095');
-      $category3 = get_category('1096');
-      $category4 = get_category('1097');
-      $category5 = get_category('1098');
-      $category6 = get_category('1159');
-
-      $count = $category1->category_count + $category2->category_count + $category3->category_count + $category4->category_count + $category5->category_count + $category6->category_count;
-
-      $othernumber = $othercategories->category_count;
-      $categories = get_categories( array(
-        'orderby' => 'menu_order',
-        'order'   => 'ASC',
-        'exclude' => '54, 1094, 1095, 1096, 1097, 1098, 1159'
-      ) );
+    <div id="secondary" class="footer-widget-area widget-area" role="complementary">
       
-      foreach( $categories as $category ) {
-        $category_link = sprintf( 
-          '<a href="%1$s" alt="%2$s">%3$s</a>',
-          esc_url( get_category_link( $category->term_id ) ),
-          esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $category->name ) ),
-          esc_html( $category->name )
-        );
-
-        echo '<li class="cat-item">' . sprintf( esc_html__( '%s', 'textdomain' ), $category_link ) . '</li> ';
-      } ?>
-      <li><a href="/other-entertainment">Other Entertainment</li>
-
-      </ul>
-  </div><!-- .widget-wrapper -->
-</div><!-- #secondary -->
-<?php get_sidebar(); ?>
+      <!-- naviagation -->
+      <nav id="site-navigation" class="main-navigation header-element" role="navigation">
+        <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php _e( 'Menu', 'argent' ); ?></button>
+        <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+      </nav>
+      
+    </div><!-- #secondary -->
+    <?php get_sidebar(); ?>
 
 	</div><!-- #content -->
 
