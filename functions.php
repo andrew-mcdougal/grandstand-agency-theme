@@ -158,7 +158,9 @@ return $newsizes;
 }
 
 
-
+add_filter( 'wp_list_categories', function( $html ) {
+    return str_replace( ' current-cat', ' active', $html );
+});
 
 
 

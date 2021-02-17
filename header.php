@@ -126,10 +126,3 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
 
   <div id="content" class="site-content">
-    <?php if ( function_exists( 'yoast_breadcrumb' ) ) {
-      //yoast_breadcrumb();
-    }
-    ?>
-
-
-<?php the_breadcrumb() ?>

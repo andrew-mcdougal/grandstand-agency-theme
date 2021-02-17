@@ -56,6 +56,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
   outline: 0; }
 
 html {
+  scroll-behavior: smooth;
   font-size: 62.5%;
   /* 10px */
   overflow-y: scroll;
@@ -159,7 +160,7 @@ h6 {
   text-transform: uppercase; }
 
 p {
-  margin-bottom: 1.7778em; }
+  margin-bottom: 1.2em; }
 
 p:last-child {
   margin-bottom: 0; }
@@ -280,6 +281,10 @@ hr {
   border: 0;
   height: 1px;
   margin: 2.5em 0; }
+  hr.hr-small {
+    margin: 1em 0; }
+  hr.hr-grey {
+    background-color: #bdbdbd; }
 
 ul,
 ol {
@@ -2002,8 +2007,8 @@ ONTRENDWEBSITES2 CSS
 #content .site-main,
 #content .page-content {
   width: 100%;
-  max-width: 960px;
-  margin: 1em auto;
+  max-width: 1200px;
+  margin: 3em auto;
   position: relative; }
 
 .site-branding {
@@ -2225,7 +2230,7 @@ ONTRENDWEBSITES2 CSS
   /*
   background: url('http://grandstandagency.com.au/website/wp-content/uploads/2015/07/category-default.jpg') no-repeat;
   */
-  max-width: 960px;
+  max-width: 1200px;
   position: relative;
   overflow: hidden;
   margin-bottom: 20px; }
@@ -2558,7 +2563,7 @@ ul.related-acts li a:hover {
 #page #main .page-title {
   font-weight: 300 !important;
   text-align: left;
-  margin-bottom: 0; }
+  margin-bottom: 3rem; }
 
 .content-left {
   width: 40%;
@@ -2948,7 +2953,8 @@ ul.related-acts li a:hover {
     display: block;
     margin-bottom: 5px; } }
 .taxonomy-description p {
-  font-size: 16px; }
+  font-size: 22px;
+  line-height: 120%; }
 
 #secondary .widget_categories ul {
   display: flex;
@@ -3488,9 +3494,10 @@ body {
 
 .header-menu-bottom-wrapper {
   background: rgba(0, 0, 0, 0.75);
-  position: absolute;
   width: 100%;
   z-index: 10; }
+  .home .header-menu-bottom-wrapper {
+    position: absolute; }
 
 .header-menu-large {
   max-width: 1200px;
@@ -3613,11 +3620,17 @@ body {
 .grid-layout--two-columns-half {
   grid-template-columns: 1fr 1fr; }
 
+.grid-layout--two-columns-2-1 {
+  grid-template-columns: 2fr 1fr; }
+
 .grid-layout--gap-1 {
-  gap: 1em; }
+  gap: 1rem; }
 
 .grid-layout--gap-2 {
-  gap: 2em; }
+  gap: 2rem; }
+
+.grid-layout--gap-3 {
+  gap: 3rem; }
 
 .margin-bottom-base {
   margin-bottom: 1rem; }
@@ -3658,5 +3671,58 @@ input[type="submit"] {
   input[type="submit"].submit-button-red {
     background: #E23350;
     color: #FFFFFF; }
+
+.category-page-category-list li {
+  line-height: 100%;
+  align-items: center; }
+.category-page-category-list a {
+  color: #242424;
+  font-size: .7em;
+  font-weight: 600;
+  margin-right: 1em;
+  line-height: 100%; }
+  .category-page-category-list a:hover {
+    color: #E23350; }
+.category-page-category-list li:not(.active),
+.category-page-category-list li:not(.active-parent),
+.category-page-category-list li:not(.active-ancestor) {
+  display: none; }
+.category-page-category-list li.active,
+.category-page-category-list li.active-parent,
+.category-page-category-list li.active-ancestor {
+  display: flex; }
+  .category-page-category-list li.active > a,
+  .category-page-category-list li.active-parent > a,
+  .category-page-category-list li.active-ancestor > a {
+    color: #E23350; }
+  .category-page-category-list li.active ul,
+  .category-page-category-list li.active-parent ul,
+  .category-page-category-list li.active-ancestor ul {
+    display: flex;
+    margin: 0; }
+    .category-page-category-list li.active ul li,
+    .category-page-category-list li.active-parent ul li,
+    .category-page-category-list li.active-ancestor ul li {
+      display: flex; }
+
+#acts-wrapper {
+  background: #242424;
+  text-align: center; }
+  #acts-wrapper h4 {
+    color: #FFFFFF;
+    padding: 2rem;
+    margin: 0; }
+
+.acts-wrapper-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+  .acts-wrapper-inner .artist-pod {
+    width: auto;
+    height: auto;
+    overflow: visible;
+    margin: auto;
+    margin: 2rem;
+    background: #FFFFFF; }
 
 /*# sourceMappingURL=combined.css.map */

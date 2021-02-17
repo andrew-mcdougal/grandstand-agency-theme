@@ -68,6 +68,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
   outline: 0;
 }
 html {
+  scroll-behavior: smooth;
   font-size: 62.5%; /* 10px */
   overflow-y: scroll; /* Keeps page centred in all browsers regardless of content height */
   -webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
@@ -169,7 +170,7 @@ h6 {
   text-transform: uppercase;
 }
 p {
-  margin-bottom: 1.7778em;
+  margin-bottom: 1.2em;
 }
 p:last-child {
   margin-bottom: 0;
@@ -292,6 +293,14 @@ hr {
   border: 0;
   height: 1px;
   margin: 2.5em 0;
+
+  &.hr-small {
+    margin: 1em 0;
+  }
+
+  &.hr-grey {
+    background-color: lighten($grey, 60%);
+  }
 }
 ul,
 ol {
@@ -2129,8 +2138,8 @@ ONTRENDWEBSITES2 CSS
 #content .site-main,
 #content .page-content {
   width: 100%;
-  max-width: 960px;
-  margin: 1em auto;
+  max-width: 1200px;
+  margin: 3em auto;
   position: relative;
 }
 
@@ -2417,7 +2426,7 @@ margin-bottom: 0.5em;
   /*
   background: url('http://grandstandagency.com.au/website/wp-content/uploads/2015/07/category-default.jpg') no-repeat;
   */
-  max-width: 960px;
+  max-width: 1200px;
   position: relative;
   overflow: hidden;
   margin-bottom: 20px;
@@ -2832,7 +2841,7 @@ ul.related-acts li a:hover {
 #page #main .page-title {
   font-weight: 300!important;
   text-align: left;
-  margin-bottom: 0;
+  margin-bottom: 3rem;
 }
 
 .content-left {
@@ -3308,7 +3317,8 @@ ul.related-acts li a:hover {
 }
 
 .taxonomy-description p {
-font-size: 16px;
+  font-size: 22px;
+  line-height: 120%;
 }
 
 #secondary .widget_categories ul {
@@ -4187,9 +4197,12 @@ body {
 // entertainment menu
 .header-menu-bottom-wrapper {
   background: rgba(0,0,0,.75);
-  position: absolute;
   width: 100%;
   z-index: 10;
+
+  .home & {
+    position: absolute;
+  }
 }
 
 .header-menu-large {
@@ -4382,12 +4395,17 @@ body {
   grid-template-columns: 1fr 1fr;
 }
 
+.grid-layout--two-columns-2-1 {
+  grid-template-columns: 2fr 1fr;
+}
+
 .grid-layout--reverse {
 
 }
 
-.grid-layout--gap-1 { gap: 1em; }
-.grid-layout--gap-2 { gap: 2em; }
+.grid-layout--gap-1 { gap: 1rem; }
+.grid-layout--gap-2 { gap: 2rem; }
+.grid-layout--gap-3 { gap: 3rem; }
 
 .margin-bottom-base {
   margin-bottom: 1rem;
@@ -4446,6 +4464,93 @@ input[type="submit"] {
     color: $white;
   }
 }
+
+// category page
+.category-header-wrapper {
+
+}
+
+
+.category-page-category-list {
+
+  li {
+    line-height: 100%;
+    align-items: center;
+  }
+
+  a {
+    color: $grey;
+    font-size: .7em;
+    font-weight: 600;
+    margin-right: 1em;
+    line-height: 100%;
+
+    &:hover {
+      color: $secondary;
+    }
+  }
+
+  li:not(.active),
+  li:not(.active-parent),
+  li:not(.active-ancestor) {
+    display: none;
+  }
+
+  li.active,
+  li.active-parent,
+  li.active-ancestor {
+
+    > a {
+      color: $secondary;
+    }
+
+    display: flex;
+
+    ul {
+      display: flex;
+      margin: 0;
+
+      li {
+        display: flex;
+      }
+    } 
+  } 
+} 
+
+// category acts list
+#acts-wrapper {
+  background: $grey;
+  text-align: center;
+
+  h4 {
+    color: $white;
+    padding: 2rem;
+    margin: 0;
+  }
+}
+
+.acts-wrapper-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  .artist-pod {
+    width: auto;
+    height: auto;
+    overflow: visible;
+    margin: auto;
+    margin: 2rem;
+    background: $white;
+  }
+}
+
+
+
+
+
+
+
+
 
 
 

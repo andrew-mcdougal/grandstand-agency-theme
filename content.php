@@ -5,7 +5,6 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" class="artist-pod">
-
 	<!-- Thumbnail and title -->
 	<?php if ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) : ?>
 		<div class="artist-thumb-container">
@@ -35,4 +34,4 @@
     <!-- Artist info -->
     <!-- More info hover link -->
     <a class="more-info" href="<?php the_permalink(); ?>">More Info <i class="fa fa-share"></i></a>
-</article><!-- #post-## -->
+</article>
