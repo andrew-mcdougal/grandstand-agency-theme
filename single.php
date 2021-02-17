@@ -7,155 +7,118 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-
-		<?php while ( have_posts() ) : the_post(); ?>
-
-			<?php get_template_part( 'content', 'single' ); ?>
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+    <?php while ( have_posts() ) : the_post(); ?>
+    <?php get_template_part( 'content', 'single' ); ?>
             
-            <div id="tab-container" class="tab-container">
-                <ul class='etabs'>
-                    <?php if( get_field('bio') ): ?>
-                    <li class='tab'><a href="#tabs1-bio"><h4>Bio</h4></a></li>
-                    <?php endif; ?>
-                    <?php if( get_field('songs') ): ?>
-                    <li class='tab'><a href="#tabs1-songs"><h4>Song list</h4></a></li>
-                    <?php endif; ?>
-                    <?php if( get_field('demo') ): ?>
-            		<li class='tab'><a href="#tabs1-demo"><h4>Demo</h4></a></li>
-            		<?php endif; ?>
-                    <?php if( have_rows('testimonial') ): ?>
-                    <li class='tab'><a href="#tabs1-testimonials"><h4>Testimonials</h4></a></li>
-            		<?php endif; ?>
-                    
-                </ul>
+      <div id="tab-container" class="tab-container">
+        <ul class='etabs'>
+          <?php if( get_field('bio') ):
+          echo '<li class="tab"><a href="#tabs1-bio">Bio</a></li>';
+          endif;
+          
+          if( get_field('songs') ):
+          echo '<li class="tab"><a href="#tabs1-songs">Song list</a></li>';
+          endif;
+          
+          if( get_field('demo') ):
+          echo '<li class="tab"><a href="#tabs1-demo">Demo</a></li>';
+          endif;
+          
+          if( have_rows('testimonial') ):
+          echo '<li class="tab"><a href="#tabs1-testimonials">Testimonials</a></li>';
+          endif; ?>
+        </ul>
                 
-                <!-- Show Bio if there is one -->
-                <?php if( get_field('bio') ): ?>
-                <div id="tabs1-bio" class="tab-content">
-                    <article class="artist-page bio">
-                        <?php the_field('bio'); ?>
-                    </article>
-                </div>
-                <?php endif; ?>
-                
-                <!-- Show Bio if there is one -->
-                <?php if( get_field('songs') ): ?>
-                <div id="tabs1-songs" class="tab-content">
-                    <article class="artist-page songs">
-
-<script>
-// search songlist
-function searchSongs() {
-  // Declare variables
-  var input, filter, ul, songPara, a, i, txtValue;
-  input = document.getElementById('myInput');
-  filter = input.value.toUpperCase();
-  ul = document.getElementById("myUL");
-  songPara = ul.getElementsByTagName('p');
-
-  // Loop through all list items, and hide those who don't match the search query
-  for (i = 0; i < songPara.length; i++) {
-    a = songPara[i];
-    txtValue = a.textContent || a.innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      songPara[i].style.display = "";
-    } else {
-      songPara[i].style.display = "none";
-    }
-  }
-}
-</script>
-<input type="text" id="myInput" onkeyup="searchSongs()" placeholder="Search for song names or artists..">
-<div id="myUL">
-                        <?php the_field('songs'); ?>
-</div>
-                    </article>
-                </div>
-                <?php endif; ?>
-
-                <!-- Show Demo if there is one -->
-                <?php if( get_field('demo') ): ?>
-                <div id="tabs1-demo" class="tab-content">    
-                    <article class="artist-page demo">
-                        <?php the_field('demo'); ?>
-                    </article>
-                </div>
-                <?php endif; ?>
-                
-                <!-- Show Testimonials if there are any -->
-                <?php if( have_rows('testimonial') ): ?>
-                <div id="tabs1-testimonials" class="tab-content">	
-                    <article class="artist-page testimonial">
-                        <div class="flexslider">
-                            <ul class="slides">
-                            <?php
-                            $rows = get_field('testimonial');
-                            if($rows) {
-                                foreach($rows as $row) {
-                                    $output = "<li>\n";
-                                    $output .= "  <p class='testimonial-text'>". $row['words'] ."</p>\n";
-                                    $output .= "  <small>" . $row['person'] . "</small>";
-                                    $output .= "</li>\r\n\n";
-                                    echo $output;
-                                }
-                            }
+        <!-- Show content if any -->
+        <?php if( get_field('bio') ): ?>
+        <div id="tabs1-bio" class="tab-content">
+          <article class="artist-page bio">
+            <?php the_field('bio'); ?>
+          </article>
+        </div>
+        <?php endif; ?>
         
-                            ?>
-                            </ul>
-                        </div>
-                    </article>
-                </div>
-                <?php endif; ?>
-                
+        <?php if( get_field('songs') ): ?>
+        <div id="tabs1-songs" class="tab-content">
+          <article class="artist-page songs">
+            <script>
+            // search songlist
+            function searchSongs() {
+              // Declare variables
+              var input, filter, ul, songPara, a, i, txtValue;
+              input = document.getElementById('myInput');
+              filter = input.value.toUpperCase();
+              ul = document.getElementById("myUL");
+              songPara = ul.getElementsByTagName('p');
+
+              // Loop through all list items, and hide those who don't match the search query
+              for (i = 0; i < songPara.length; i++) {
+                a = songPara[i];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  songPara[i].style.display = "";
+                } else {
+                  songPara[i].style.display = "none";
+                }
+              }
+            }
+            </script>
+
+            <input type="text" id="myInput" onkeyup="searchSongs()" placeholder="Search for song names or artists..">
+            <div id="myUL">
+              <?php the_field('songs'); ?>
             </div>
+          </article>
+        </div>
+        <?php endif; ?>
 
-            <!-- Add related acts from same category -->
-            <?php
-                if ( is_single()) {
-                    $categories = get_the_category();
-                        if ($categories) {
-                            foreach ($categories as $category) {
+                
+        <?php if( get_field('demo') ): ?>
+        <div id="tabs1-demo" class="tab-content">    
+          <article class="artist-page demo">
+            <?php the_field('demo'); ?>
+          </article>
+        </div>
+        <?php endif; ?>
+                
+                
+        <?php if( have_rows('testimonial') ): ?>
+        <div id="tabs1-testimonials" class="tab-content"> 
+          <article class="artist-page testimonial">
+            <div class="flexslider">
+              <ul class="slides">
+              <?php
+              $rows = get_field('testimonial');
+              if($rows) {
+                foreach($rows as $row) {
+                  $output = "<li>\n";
+                  $output .= "  <p class='testimonial-text'>". $row['words'] ."</p>\n";
+                  $output .= "  <small>" . $row['person'] . "</small>";
+                  $output .= "</li>\r\n\n";
+                  echo $output;
+                }
+              }
+              ?>
+              </ul>
+            </div>
+          </article>
+        </div>
+        <?php endif; ?>
+                
+      </div>
 
+<?php
+$categories = get_the_category();
+ 
+if ( ! empty( $categories ) ) {
+    echo '<p>Check out more ' . esc_html( $categories[0]->name ) . ':</p>';
+    echo do_shortcode('[ajax_load_more post_type="post" category="' . esc_html( $categories[0]->slug ) . '" scroll="false" posts_per_page="6"]');
+}
+?>
+    <?php endwhile; // end of the loop. ?>
 
-
-                                $cat = $category->cat_ID;
-                                $args=array(
-                                'cat' => $cat,
-                                'order' =>DESC,
-                                'orderby' => rand,
-                                'post__not_in' => array($post->ID),
-                                'posts_per_page'=>9999,
-                                'caller_get_posts'=>1
-                                );
-                                $my_query = null;
-                                $my_query = new WP_Query($args);
-                                    if( $my_query->have_posts() ) {
-
-
-
-                                    echo '<p>Check out our other '. $category->cat_name . '...</p>';
-                                    echo '<ul class="related-acts">';
-                                    while ($my_query->have_posts()) : $my_query->the_post(); ?>
-                                    <li>
-                                        <a href="<?php the_permalink(); ?>">
-                                            <?php the_post_thumbnail('thumbnail'); ?>
-                                            <p><?php the_title(); ?></p>
-                                        </a>
-                                    </li>
-                                     <?php
-                                    endwhile;
-                                    echo '</ul>';
-                                }
-                            }
-                        } wp_reset_query(); 
-                    }
-            ?>
-
-		<?php endwhile; // end of the loop. ?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
+    </main><!-- #main -->
+  </div><!-- #primary -->
 <?php get_footer(); ?>

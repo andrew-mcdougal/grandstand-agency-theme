@@ -285,6 +285,8 @@ hr {
     margin: 1em 0; }
   hr.hr-grey {
     background-color: #bdbdbd; }
+  hr.hr-blank {
+    background-color: transparent; }
 
 ul,
 ol {
@@ -3623,6 +3625,9 @@ body {
 .grid-layout--two-columns-2-1 {
   grid-template-columns: 2fr 1fr; }
 
+.grid-layout--two-columns-1-2 {
+  grid-template-columns: 1fr 2fr; }
+
 .grid-layout--gap-1 {
   gap: 1rem; }
 
@@ -3631,6 +3636,9 @@ body {
 
 .grid-layout--gap-3 {
   gap: 3rem; }
+
+.grid-layout--gap-4 {
+  gap: 4rem; }
 
 .margin-bottom-base {
   margin-bottom: 1rem; }
@@ -3724,5 +3732,35 @@ input[type="submit"] {
     margin: auto;
     margin: 2rem;
     background: #FFFFFF; }
+
+.etabs {
+  border: 2px solid #E23350;
+  border-radius: 30px;
+  margin-bottom: 5em;
+  width: max-content; }
+  .etabs .tab {
+    border: none;
+    border-radius: none;
+    margin: 0;
+    background: transparent; }
+    .etabs .tab a {
+      color: #E23350;
+      font-size: 1em;
+      padding: 0 3em;
+      border-radius: 30px; }
+    .etabs .tab.active {
+      padding: 0;
+      top: auto; }
+      .etabs .tab.active a {
+        background: #E23350;
+        color: #FFFFFF; }
+
+.tab-content {
+  border: none;
+  padding: 0;
+  margin: 0; }
+
+.artist-page.bio p, .artist-page.testimonial p {
+  max-width: 60ch; }
 
 /*# sourceMappingURL=combined.css.map */

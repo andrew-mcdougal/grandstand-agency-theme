@@ -301,6 +301,10 @@ hr {
   &.hr-grey {
     background-color: lighten($grey, 60%);
   }
+
+  &.hr-blank {
+    background-color: transparent;
+  }
 }
 ul,
 ol {
@@ -4399,6 +4403,10 @@ body {
   grid-template-columns: 2fr 1fr;
 }
 
+.grid-layout--two-columns-1-2 {
+  grid-template-columns: 1fr 2fr;
+}
+
 .grid-layout--reverse {
 
 }
@@ -4406,6 +4414,7 @@ body {
 .grid-layout--gap-1 { gap: 1rem; }
 .grid-layout--gap-2 { gap: 2rem; }
 .grid-layout--gap-3 { gap: 3rem; }
+.grid-layout--gap-4 { gap: 4rem; }
 
 .margin-bottom-base {
   margin-bottom: 1rem;
@@ -4541,6 +4550,56 @@ input[type="submit"] {
     margin: auto;
     margin: 2rem;
     background: $white;
+  }
+}
+
+// artists pages
+.etabs {
+  border: 2px solid $secondary;
+  border-radius: 30px;
+  margin-bottom: 5em;
+  width: max-content;
+
+  .tab {
+    border: none;
+    border-radius: none;
+    margin: 0;
+    //border: 2px solid $secondary;
+    background: transparent;
+
+    a {
+      color: $secondary;
+      font-size: 1em;
+      padding: 0 3em;
+      border-radius: 30px;
+    }
+
+    &.active {
+      padding: 0;
+      top: auto;
+
+      a {
+        background: $secondary;
+        color: $white;
+      }
+    }
+  }
+}
+
+.tab-content {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.artist-page {
+
+  &.bio,
+  &.testimonial {
+
+    p {
+      max-width: 60ch;
+    }
   }
 }
 
