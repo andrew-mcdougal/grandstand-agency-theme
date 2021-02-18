@@ -31,7 +31,7 @@ get_header(); ?>
           echo $select; 
           ?>
 
-          <button class="button" type="submit">Go</button>  
+          <button class="button button-full" type="submit">Go</button>  
         </form>
 
         <a href="#home-welcome" class="more-content">

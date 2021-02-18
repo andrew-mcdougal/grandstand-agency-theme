@@ -67,7 +67,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=146512698822022";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-<div id="page" class="hfeed site">
+<div id="page" class="hfeed site remodal-bg">
   <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'argent' ); ?></a>
 
   <header id="masthead" class="site-header" role="banner">

@@ -113,8 +113,12 @@ get_header(); ?>
 $categories = get_the_category();
  
 if ( ! empty( $categories ) ) {
-    echo '<p>Check out more ' . esc_html( $categories[0]->name ) . ':</p>';
-    echo do_shortcode('[ajax_load_more post_type="post" category="' . esc_html( $categories[0]->slug ) . '" scroll="false" posts_per_page="6"]');
+    $category_name = esc_html( $categories[0]->name );
+    echo '<p>Check out more ' . $category_name . ':</p>';
+    echo do_shortcode('[ajax_load_more post_type="post" category="' . $category_name . '" scroll="false" posts_per_page="6"]');
+
+    echo '<span class="visually-hidden cat-name-hidden">' . $category_name . '</span>';
+    echo '<span class="visually-hidden act-name-hidden">' . get_the_title() . '</span>';
 }
 ?>
     <?php endwhile; // end of the loop. ?>

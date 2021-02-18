@@ -2011,7 +2011,8 @@ ONTRENDWEBSITES2 CSS
   width: 100%;
   max-width: 1200px;
   margin: 3em auto;
-  position: relative; }
+  position: relative;
+  padding-top: 6rem; }
 
 .site-branding {
   background: #FFF; }
@@ -3299,7 +3300,8 @@ body {
       background: #E23350;
       color: #FFFFFF; }
 
-#main p .button-red {
+#main p .button-red,
+#main button .button-red {
   background: #E23350;
   border-radius: 3px;
   padding: 0.5em 1em;
@@ -3310,7 +3312,8 @@ body {
   position: relative;
   top: 0;
   text-transform: uppercase; }
-  #main p .button-red:hover {
+  #main p .button-red:hover,
+  #main button .button-red:hover {
     background: #dc1f3f;
     top: 2px;
     box-shadow: 0 2px 0 #6d0f1f; }
@@ -3495,9 +3498,8 @@ body {
 .header-menu-bottom-wrapper {
   background: rgba(0, 0, 0, 0.75);
   width: 100%;
-  z-index: 10; }
-  .home .header-menu-bottom-wrapper {
-    position: absolute; }
+  z-index: 10;
+  position: absolute; }
 
 .header-menu-large {
   max-width: 1200px;
@@ -3613,6 +3615,39 @@ body {
 #main img {
   border-radius: 5px; }
 
+.button-default {
+  font-weight: 600;
+  background: #3e3e3e;
+  border: none;
+  border-radius: 5px;
+  color: #FFFFFF;
+  transition: all .1s;
+  margin-bottom: 1.5em; }
+  .button-default:hover {
+    background: #242424;
+    color: #FFFFFF; }
+  .button-default.button-default-red {
+    background: #e86076; }
+    .button-default.button-default-red:hover {
+      background: #E23350; }
+  .button-default.button-default-green {
+    background: #97cf45; }
+    .button-default.button-default-green:hover {
+      background: #7db32e; }
+
+.visually-hidden {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 1px !important; }
+
 @media screen and (min-width: 768px) {
   .grid-layout {
     display: grid; } }
@@ -3661,22 +3696,51 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
 .button,
 input[type="submit"] {
   display: block;
-  width: 100%;
+  width: auto;
+  padding: .1em 2em;
   background: #FFFFFF;
   color: #E23350;
   border: none;
   border-radius: 10px;
   font-size: 1.5em;
   font-weight: 600;
-  height: auto; }
+  height: auto;
+  transition: all .2s; }
   .button:hover,
   input[type="submit"]:hover {
     background: #E23350;
     color: #FFFFFF; }
+  .button.button-full,
+  input[type="submit"].button-full {
+    width: 100%; }
+  .button.button-small,
+  input[type="submit"].button-small {
+    font-size: 1em; }
   .button.submit-button-red,
   input[type="submit"].submit-button-red {
     background: #E23350;
     color: #FFFFFF; }
+  .button.button-green,
+  input[type="submit"].button-green {
+    background: #97cf45;
+    color: #FFFFFF; }
+    .button.button-green:hover,
+    input[type="submit"].button-green:hover {
+      background: #7db32e; }
+  .button.button-blue,
+  input[type="submit"].button-blue {
+    background: #148ff1;
+    color: #FFFFFF; }
+    .button.button-blue:hover,
+    input[type="submit"].button-blue:hover {
+      background: #0d82df; }
+  .button.button-grey,
+  input[type="submit"].button-grey {
+    background: #bdbdbd;
+    color: #FFFFFF; }
+    .button.button-grey:hover,
+    input[type="submit"].button-grey:hover {
+      background: #8a8a8a; }
 
 .category-page-category-list li {
   line-height: 100%;
