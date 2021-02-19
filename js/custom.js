@@ -159,6 +159,19 @@ const artistForm = () => {
   } 
 }
 
+const moreAnimation = () => {
+  const $moreArrow = document.querySelector('.more-content .fa');
+
+  if ( $moreArrow ) {
+    gsap.to($moreArrow, {
+    	duration: .5, 
+    	y: 10,
+    	yoyo: true,
+    	repeat: -1,
+    });
+  } 
+}
+
 window.addEventListener('DOMContentLoaded', (event) => {
   console.log('DOM fully loaded and parsed');
   mobileSearch();
@@ -167,6 +180,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 window.addEventListener('load', (event) => {
   console.log('page is fully loaded');
   artistForm();
+  moreAnimation();
 });
 
 

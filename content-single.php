@@ -16,7 +16,7 @@
       <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
       <div class="artist-content">
         <?php the_content(); ?>
-        <button class="button-default"data-remodal-target="modal">Bookings</button>
+        <button class="button-default" data-remodal-target="modal-booking">Bookings</button>
         <p><a href="#tab-container">Keep scrolling for more details</a></p>
 
       </div>
@@ -25,7 +25,7 @@
   </div><!-- .entry-content -->
 </article><!-- #post-## -->
 
-<div class="remodal" data-remodal-id="modal">
+<div class="remodal" data-remodal-id="modal-booking">
   <button data-remodal-action="close" class="remodal-close"></button>
   <h1>Make a booking enquiry</h1>
   <p>Add your details and fill out as much info on your event or venue. We'll be in touch soon!</p>

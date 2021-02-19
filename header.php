@@ -123,6 +123,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 
+  <div class="remodal" data-remodal-id="modal-register">
+    <button data-remodal-action="close" class="remodal-close"></button>
+    <h1>We love to hear from new talent.</h1>
+    <p>Please provide as much of the below information and materials as possible.</p>
+    <br>
+    <?php
+      echo do_shortcode('[contact-form-7 id="5030" title="Artist register"]');
+    ?>
+    <button data-remodal-action="cancel" class="button button-grey button-small">Close</button>
+  </div>
+
+  <div class="remodal" data-remodal-id="modal-contact">
+    <button data-remodal-action="close" class="remodal-close"></button>
+    <h1>Ready to book your band?</h1>
+    <p>Fill in the form and we’ll get right on it.</p>
+    <br>
+    <?php
+      echo do_shortcode('[contact-form-7 id="5021" title="Main booking"]');
+    ?>
+    <button data-remodal-action="cancel" class="button button-grey button-small">Close</button>
+  </div>
+
   
 
   <div id="content" class="site-content">

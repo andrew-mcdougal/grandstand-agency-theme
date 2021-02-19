@@ -35,8 +35,8 @@ get_header(); ?>
         </form>
 
         <a href="#home-welcome" class="more-content">
-          <i class="fa fa-chevron-down"></i>
           more
+          <i class="fa fa-chevron-down"></i>
         </a>
       </div>
 
