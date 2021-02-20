@@ -106,6 +106,10 @@ get_header(); ?>
           </article>
         </div>
         <?php endif; ?>
+
+        <button class="button-default" data-remodal-target="modal-booking">Book this act</button>
+
+        <hr class="hr-grey">
                 
       </div>
 
@@ -114,7 +118,7 @@ $categories = get_the_category();
  
 if ( ! empty( $categories ) ) {
     $category_name = esc_html( $categories[0]->name );
-    echo '<p>Check out more ' . $category_name . ':</p>';
+    echo '<h4 class="more-acts-para">Check out more ' . $category_name . ':</h4>';
     echo do_shortcode('[ajax_load_more post_type="post" category="' . $category_name . '" scroll="false" posts_per_page="6"]');
 
     echo '<span class="visually-hidden cat-name-hidden">' . $category_name . '</span>';

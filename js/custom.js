@@ -18,7 +18,7 @@ jQuery(document).ready (function() {
 
   jQuery('article.artist-pod .grabber').equalHeights();
   jQuery('.category-pod .grabber').equalHeights();
-  jQuery('.category-container a').equalHeights();
+  //jQuery('.category-container a').equalHeights();
 
   // Home page animate rollover link by adding class "hover"
   jQuery('.category-pod').hover(

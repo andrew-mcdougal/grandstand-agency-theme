@@ -36,7 +36,7 @@ get_header(); ?>
       <hr />
       <?php /* Start the Loop */ ?>
       <div id="acts-wrapper">
-        <h4><?php single_cat_title(); ?> for hire</h4>
+        <h2><?php single_cat_title(); ?> for hire</h2>
         <div class="acts-wrapper-inner">
           <?php while ( have_posts() ) : the_post();
           get_template_part( 'content', get_post_format() );
