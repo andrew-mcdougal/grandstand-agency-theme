@@ -106,7 +106,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         hierarchical_category_tree( 0 ); // the function call; 0 for all categories; or cat ID  
 
         function hierarchical_category_tree( $cat ) {
-          $next = get_categories('hide_empty=false&orderby=name&order=ASC&parent=' . $cat);
+          $next = get_categories('hide_empty=false&orderby=menu_order&order=ASC&parent=' . $cat);
 
           if( $next ) :    
             foreach( $next as $cat ) :

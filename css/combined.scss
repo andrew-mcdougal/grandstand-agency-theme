@@ -139,6 +139,7 @@ h6 {
   font-family: $font-heading;
   font-weight: 700;
   line-height: 120%;
+  color: $black;
 }
 h1 {
   font-size: 40px;
@@ -174,6 +175,8 @@ h6 {
 }
 p {
   margin-bottom: 1.2em;
+  color: $black;
+  font-weight: 500;
 }
 p:last-child {
   margin-bottom: 0;
@@ -3911,6 +3914,7 @@ body {
 
       p {
         margin-top: 3px;
+        color: $white;
       }
     }
 
@@ -4099,6 +4103,7 @@ body {
     display: inline-block;
     line-height: 170%;
     margin: .5em 0;
+    color: $white;
   }
 
   .entertainment-menu {
@@ -4119,6 +4124,11 @@ body {
 
         a {
           color: $white;
+          border-bottom: 1px solid transparent;
+
+          &:hover {
+            border-color: $white;
+          }
         }
       }
 
@@ -4177,13 +4187,14 @@ body {
 // homepage
 .background-image-fade-wrapper {
   width: 100vw;
-  height: 80vh;
+  height: 110vh;
   overflow: hidden;
-  position: relative;
-  z-index: 0;
+  position: absolute;
+  z-index: -1;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: red;
 }
 
 .background-image-fade {
@@ -4193,12 +4204,18 @@ body {
   background-position: center;
   width: 100%;
   height: 100%;
+  top: 0;
 }
 
 .home-event-select {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 15vh;
+
+  .category-select {
+    padding-bottom: 5vh;
+  }
 
   p {
     color: $white;
@@ -4225,21 +4242,23 @@ body {
     background-position: right 15px top 16px;
     background-repeat: no-repeat;
     background-size: 25px;
+
+    text-align: center;
   }
 }
 
 .more-content {
   display: flex;
   flex-direction: column;
-  position: relative;
-  top: 10vh;
   text-align: center;
   cursor: pointer;
   color: $grey;
   opacity: .8;
+  color: $white;
 
   &:hover {
     opacity: 1;
+    color: $white;
   }
 }
 
@@ -4755,9 +4774,34 @@ article.artist-pod {
   }
 }
 
+.font-colour-white {
+  color: $white;
+}
 
+.font-colour-black {
+  color: $black;
+}
 
+.font-colour-grey {
+  color: $grey;
+}
 
+.font-colour-secondary {
+  color: $secondary;
+}
+
+.fade-box {
+  padding: 1rem;
+  border-radius: 5px;
+
+  &.fade-box-white {
+    background: rgba($white, .4);
+  }
+
+  &.fade-box-black {
+    background: rgba($black, .4);
+  }
+}
 
 
 

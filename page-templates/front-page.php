@@ -9,38 +9,36 @@ get_header(); ?>
     <div 
       class="background-image-fade" 
       style="
-      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 20%, rgba(255, 255, 255, 1)), url('<?php echo get_the_post_thumbnail_url( get_the_ID() ); ?>')"
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 70%, rgba(255, 255, 255, 1)), url('<?php echo get_the_post_thumbnail_url( get_the_ID() ); ?>')"
       >
-      </div>
+    </div>
+  </div>
+  <div style="height: 25vh; width: 100%;"></div>
+  <div class="home-event-select">
+    <p>Show me</p>
+    <form id="category-select" class="category-select" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
+      <?php
+      $args = array(
+          'orderby'       => 'name',
+          'echo'          => 0,
+          'hierarchical'  => 1,
+          'depth'         => 1,
+      );
+   
+      $select  = wp_dropdown_categories( $args );
+      $replace = "<select$1 onsubmit='return this.form.submit()'>"; 
+      $select  = preg_replace( '#<select([^>]*)>#', $replace, $select );
 
-      <div class="home-event-select">
-        <p>Show me</p>
-        <form id="category-select" class="category-select" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
-          <?php
-          $args = array(
-              'orderby'       => 'name',
-              'echo'          => 0,
-              'hierarchical'  => 1,
-              'depth'         => 1,
-          );
-       
-          $select  = wp_dropdown_categories( $args );
-          $replace = "<select$1 onsubmit='return this.form.submit()'>"; 
-          $select  = preg_replace( '#<select([^>]*)>#', $replace, $select );
+      echo $select; 
+      ?>
 
-          echo $select; 
-          ?>
+      <button class="button button-full" type="submit">Go</button>  
+    </form>
 
-          <button class="button button-full" type="submit">Go</button>  
-        </form>
-
-        <a href="#home-welcome" class="more-content">
-          more
-          <i class="fa fa-chevron-down"></i>
-        </a>
-      </div>
-
-
+    <a href="#home-welcome" class="more-content">
+      more
+      <i class="fa fa-chevron-down"></i>
+    </a>
   </div>
   <div id="primary" class="content-area home-page">
     <main id="main" class="site-main" role="main">
