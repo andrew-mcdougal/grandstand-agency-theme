@@ -18,7 +18,7 @@ jQuery(document).ready (function() {
 
   jQuery('article.artist-pod .grabber').equalHeights();
   jQuery('.category-pod .grabber').equalHeights();
-  jQuery('.category-container a').equalHeights();
+  //jQuery('.category-container a').equalHeights();
 
   // Home page animate rollover link by adding class "hover"
   jQuery('.category-pod').hover(
@@ -149,9 +149,38 @@ const mobileSearch = () => {
   }
 }
 
+const artistForm = () => {
+  const $category = document.querySelector('.cat-name-hidden');
+  const $act = document.querySelector('.act-name-hidden');
+  const $formInputBand = document.querySelector('.wpcf7-form-control-wrap.band-name input');
+
+  if ( $category ) {
+    $formInputBand.value = $act.textContent + ': ' + $category.textContent;
+  } 
+}
+
+const moreAnimation = () => {
+  const $moreArrow = document.querySelector('.more-content .fa');
+
+  if ( $moreArrow ) {
+    gsap.to($moreArrow, {
+    	duration: .5, 
+    	y: 10,
+    	yoyo: true,
+    	repeat: -1,
+    });
+  } 
+}
+
 window.addEventListener('DOMContentLoaded', (event) => {
   console.log('DOM fully loaded and parsed');
   mobileSearch();
+});
+
+window.addEventListener('load', (event) => {
+  console.log('page is fully loaded');
+  artistForm();
+  moreAnimation();
 });
 
 

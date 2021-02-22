@@ -33,9 +33,12 @@ function load_custom_script() {
 	//wp_enqueue_script( 'tabs-js', get_stylesheet_directory_uri() . '/js/jquery.easytabs.js', '', '', true ); // tabs
 	//wp_enqueue_script( 'haschange-js', get_stylesheet_directory_uri() . '/js/jquery.hashchange.min.js', '', '', true ); // hashchange
 	wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js', '', true ); // custom
+    wp_enqueue_script( 'modal-js', get_stylesheet_directory_uri() . '/assets/js/remodal.js', '', true ); // custom
+    wp_enqueue_script( 'gsap-js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js', '', true ); // custom
 	
     // Styles
-    //wp_enqueue_style( 'slick-style', get_stylesheet_directory_uri() . '/css/slick.css', array(), '' ); // Slick slider css
+    wp_enqueue_style( 'modal-style', get_stylesheet_directory_uri() . '/assets/css/remodal.css', array(), '' );
+    wp_enqueue_style( 'modal-theme-style', get_stylesheet_directory_uri() . '/assets/css/remodal-default-theme.css', array(), '' );
     //wp_enqueue_style( 'slick-theme-style', get_stylesheet_directory_uri() . '/css/slick-theme.css', array(), '' ); // Slick slider theme css
     //wp_enqueue_style( 'skeleton-style', get_stylesheet_directory_uri() . '/css/skeleton-lite.css?v=10', array(), '' ); // Skeleton grid
     //wp_enqueue_style( 'ontrend-styles', get_stylesheet_directory_uri() . '/css/ontrendwebsites2.css?v=4' ); // ontrend v 2
@@ -140,7 +143,7 @@ function the_breadcrumb() {
 
 // header email link in nav
 function add_last_nav_item($items) {
-  return $items .= '<li><a class="nav-email" href="mailto:bookings@grandstandagency.com.au?subject=Email from Grandstand Agency site" target="_blank"><img src="' . get_stylesheet_directory_uri() . '/assets/svg/music.svg"> Contact</a></li>';
+  return $items .= '<li><button data-remodal-target="modal-contact"><img src="' . get_stylesheet_directory_uri() . '/assets/svg/music.svg"> Contact</button></li>';
 }
 add_filter('wp_nav_menu_items','add_last_nav_item');
 

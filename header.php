@@ -67,7 +67,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=146512698822022";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-<div id="page" class="hfeed site">
+<div id="page" class="hfeed site remodal-bg">
   <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'argent' ); ?></a>
 
   <header id="masthead" class="site-header" role="banner">
@@ -106,7 +106,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         hierarchical_category_tree( 0 ); // the function call; 0 for all categories; or cat ID  
 
         function hierarchical_category_tree( $cat ) {
-          $next = get_categories('hide_empty=false&orderby=name&order=ASC&parent=' . $cat);
+          $next = get_categories('hide_empty=false&orderby=menu_order&order=ASC&parent=' . $cat);
 
           if( $next ) :    
             foreach( $next as $cat ) :
@@ -121,6 +121,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         ?>
       </div>
     </div>
+  </div>
+
+  <div class="remodal" data-remodal-id="modal-register">
+    <button data-remodal-action="close" class="remodal-close"></button>
+    <h1>We love to hear from new talent.</h1>
+    <p>Please provide as much of the below information and materials as possible.</p>
+    <br>
+    <?php
+      echo do_shortcode('[contact-form-7 id="5030" title="Artist register"]');
+    ?>
+    <button data-remodal-action="cancel" class="button button-grey button-small">Close</button>
+  </div>
+
+  <div class="remodal" data-remodal-id="modal-contact">
+    <button data-remodal-action="close" class="remodal-close"></button>
+    <h1>Ready to book your band?</h1>
+    <p>Fill in the form and we’ll get right on it.</p>
+    <br>
+    <?php
+      echo do_shortcode('[contact-form-7 id="5021" title="Main booking"]');
+    ?>
+    <button data-remodal-action="cancel" class="button button-grey button-small">Close</button>
   </div>
 
   
