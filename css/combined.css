@@ -159,7 +159,8 @@ h6 {
 p {
   margin-bottom: 1.2em;
   color: #000000;
-  font-weight: 500; }
+  font-weight: 500;
+  line-height: 120%; }
 
 p:last-child {
   margin-bottom: 0; }
@@ -3454,7 +3455,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: red; }
+  background: #000000; }
 
 .background-image-fade {
   position: absolute;
@@ -3469,7 +3470,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 15vh; }
+  padding-bottom: 15vh;
+  max-width: 300px;
+  overflow: hidden;
+  margin: auto; }
   .home-event-select .category-select {
     padding-bottom: 5vh; }
   .home-event-select p {
@@ -3479,6 +3483,7 @@ body {
     font-weight: 600;
     padding-bottom: .5em; }
   .home-event-select select {
+    font-size: 16px;
     margin-bottom: .8em;
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -3491,9 +3496,9 @@ body {
     border-radius: 10px;
     padding-right: 3em;
     background-image: url("../assets/svg/chevron-down.svg");
-    background-position: right 15px top 16px;
+    background-position: right 15px top 15px;
     background-repeat: no-repeat;
-    background-size: 25px;
+    background-size: 18px;
     text-align: center; }
 
 .more-content {
@@ -3510,7 +3515,7 @@ body {
 
 .home-content h2, .home-content h3 {
   text-align: center;
-  font-size: 1.1em; }
+  font-size: 1.5em; }
 @media screen and (min-width: 768px) {
   .home-content h2 {
     font-size: 3.6rem; }
@@ -3530,6 +3535,29 @@ body {
 .text-align-left,
 .text-align-left * {
   text-align: left; }
+
+.font-colour-white {
+  color: #FFFFFF; }
+
+.font-colour-black {
+  color: #000000; }
+
+.font-colour-grey {
+  color: #242424; }
+
+.font-colour-secondary {
+  color: #E23350; }
+
+.fade-box {
+  padding: 1rem;
+  border-radius: 5px; }
+  .fade-box.fade-box-white {
+    background: rgba(255, 255, 255, 0.4); }
+  .fade-box.fade-box-black {
+    background: rgba(0, 0, 0, 0.4); }
+
+.text-shadow-black {
+  text-shadow: 1px 1px 3px #000; }
 
 @media (min-width: 768px) {
   .width-percent {
@@ -3852,25 +3880,5 @@ article.artist-pod {
       border: none; }
       #secondary .main-navigation .menu-main-container ul li .nav-email img {
         display: none; }
-
-.font-colour-white {
-  color: #FFFFFF; }
-
-.font-colour-black {
-  color: #000000; }
-
-.font-colour-grey {
-  color: #242424; }
-
-.font-colour-secondary {
-  color: #E23350; }
-
-.fade-box {
-  padding: 1rem;
-  border-radius: 5px; }
-  .fade-box.fade-box-white {
-    background: rgba(255, 255, 255, 0.4); }
-  .fade-box.fade-box-black {
-    background: rgba(0, 0, 0, 0.4); }
 
 /*# sourceMappingURL=combined.css.map */

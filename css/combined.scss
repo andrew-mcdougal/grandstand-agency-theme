@@ -177,6 +177,7 @@ p {
   margin-bottom: 1.2em;
   color: $black;
   font-weight: 500;
+  line-height: 120%;
 }
 p:last-child {
   margin-bottom: 0;
@@ -4194,7 +4195,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: red;
+  background: $black;
 }
 
 .background-image-fade {
@@ -4212,6 +4213,9 @@ body {
   flex-direction: column;
   align-items: center;
   padding-bottom: 15vh;
+  max-width: 300px;
+  overflow: hidden;
+  margin: auto;
 
   .category-select {
     padding-bottom: 5vh;
@@ -4226,6 +4230,7 @@ body {
   }
 
   select {
+    font-size: 16px;
     margin-bottom: .8em;
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -4239,9 +4244,9 @@ body {
     padding-right: 3em;
 
     background-image: url('../assets/svg/chevron-down.svg');
-    background-position: right 15px top 16px;
+    background-position: right 15px top 15px;
     background-repeat: no-repeat;
-    background-size: 25px;
+    background-size: 18px;
 
     text-align: center;
   }
@@ -4266,7 +4271,7 @@ body {
 
   h2, h3 {
     text-align: center;
-    font-size: 1.1em;
+    font-size: 1.5em;
   }
 
   @media screen and (min-width: 768px) {
@@ -4287,6 +4292,8 @@ body {
 
 // updates
 
+
+
 #main {
 
   img {
@@ -4304,6 +4311,38 @@ body {
   text-align: left;
 }
 
+.font-colour-white {
+  color: $white;
+}
+
+.font-colour-black {
+  color: $black;
+}
+
+.font-colour-grey {
+  color: $grey;
+}
+
+.font-colour-secondary {
+  color: $secondary;
+}
+
+.fade-box {
+  padding: 1rem;
+  border-radius: 5px;
+
+  &.fade-box-white {
+    background: rgba($white, .4);
+  }
+
+  &.fade-box-black {
+    background: rgba($black, .4);
+  }
+}
+
+.text-shadow-black {
+  text-shadow: 1px 1px 3px #000;
+}
 
 
 // widths
@@ -4771,35 +4810,6 @@ article.artist-pod {
         .nav-email img { display: none;}
       }
     }
-  }
-}
-
-.font-colour-white {
-  color: $white;
-}
-
-.font-colour-black {
-  color: $black;
-}
-
-.font-colour-grey {
-  color: $grey;
-}
-
-.font-colour-secondary {
-  color: $secondary;
-}
-
-.fade-box {
-  padding: 1rem;
-  border-radius: 5px;
-
-  &.fade-box-white {
-    background: rgba($white, .4);
-  }
-
-  &.fade-box-black {
-    background: rgba($black, .4);
   }
 }
 
