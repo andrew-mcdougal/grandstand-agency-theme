@@ -20,18 +20,6 @@ get_header(); ?>
           <?php wp_list_categories('orderby=name&title_li=');?>
         </div>
         <hr class="hr-grey hr-small" />
-        <div class="grid-layout grid-layout--two-columns-2-1 .grid-layout--gap-2">
-          <?php the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?>
-          <?php 
-            // get the current taxonomy term
-            $term = get_queried_object();
-            // vars
-            $image = get_field('banner', $term);
-            $alt = get_field('alt_text', $term);
-            echo '<img src="' . $image['url'] . '" alt="' . $alt . '" title="' . $alt . '" />';
-          ?>
-          <p><a href="#acts-wrapper">Scroll down to see our <?php single_cat_title(); ?></a></p>
-        </div>
       </header><!-- .page-header -->
       <hr />
       <?php /* Start the Loop */ ?>
@@ -44,6 +32,8 @@ get_header(); ?>
           ?>
         </div>
       </div>
+      <hr class="hr-grey hr-small" />
+      <?php the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?>
       <?php the_posts_navigation(); ?>
       <?php else : ?>
       <?php get_template_part( 'content', 'none' ); ?>
