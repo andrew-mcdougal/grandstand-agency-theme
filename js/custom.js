@@ -152,11 +152,14 @@ const mobileSearch = () => {
 const artistForm = () => {
   const $category = document.querySelector('.cat-name-hidden');
   const $act = document.querySelector('.act-name-hidden');
-  const $formInputBand = document.querySelector('.wpcf7-form-control-wrap.band-name input');
+  const $formInputBand = document.getElementById('band_name');
+  const $actBookingButton = document.getElementById('act_booking');
 
-  if ( $category ) {
-    $formInputBand.value = $act.textContent + ': ' + $category.textContent;
-  } 
+  if ( $category ) {  
+	console.log('act: ', $act.textContent, ': ', $category.textContent);
+    $formInputBand.value = 'Act: ' + $act.textContent + ' / Category: ' + $category.textContent;
+	      
+  }
 }
 
 const moreAnimation = () => {
