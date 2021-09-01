@@ -4537,10 +4537,6 @@ input[type="submit"] {
 }
 
 // category page
-.category-header-wrapper {
-
-}
-
 
 .category-page-category-list {
 
@@ -4589,7 +4585,9 @@ input[type="submit"] {
     } 
   }
 
+  
   // parent display differently
+  li:first-child,
   li.active-parent,
   li.active-ancestor {
     display: block;
@@ -4598,9 +4596,22 @@ input[type="submit"] {
       display: block;
       margin-bottom: 1rem;
       text-transform: uppercase;
+      
     }
   }
-} 
+}
+
+.category-page-category-list {
+
+  .children {
+
+    li:first-child a {
+      text-transform: none;
+      margin-bottom: 0;
+    }
+  }
+
+}
 
 // category acts list
 #acts-wrapper {
@@ -4616,10 +4627,16 @@ input[type="submit"] {
   flex-wrap: wrap;
 }
 
+.acts-wrapper-inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 1em;
+}
+
 article.artist-pod {
   width: auto;
   height: auto;
-  max-width: 300px;
+  //max-width: 300px;
   overflow: hidden;
   margin: auto;
   margin: 0 2rem 2rem 0;
