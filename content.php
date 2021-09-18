@@ -8,7 +8,7 @@
 
   <!-- Thumbnail -->
   <?php if ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) : ?>
-  <a href="<?php the_permalink(); ?>" class="artist-thumb-container" style="background-image: url('<?php the_post_thumbnail_url(); ?>')"></a>
+  <a href="<?php the_permalink(); ?>" class="artist-thumb-container" style="background-image: url('<?php the_post_thumbnail_url('medium'); ?>')"></a>
     
   <?php else: ?>
   <a href="<?php the_permalink(); ?>" class="artist-thumb-container" style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/img/grandstand-agency-logo-full.png)"></a>

@@ -11,18 +11,6 @@ get_header(); ?>
 
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-        
-    <?php if ( have_posts() ) : ?>
-
-      <header class="category-header-wrapper">
-        <h1 class="page-title"><?php single_cat_title(); ?></h1>
-        <div class="category-page-category-list">
-          <?php wp_list_categories('orderby=name&title_li=');?>
-        </div>
-        <hr class="hr-grey hr-small" />
-      </header><!-- .page-header -->
-      <hr />
-      <?php endif; ?> 
 
       <?php if (is_category( )) {
 
@@ -42,16 +30,31 @@ get_header(); ?>
         'exclude' => $catid,
         'hide_empty' => '0'
         ) );
+        
         //check if current category is parent category
         if ( $catid == $parent ) {
           $term = get_queried_object();
 
-          $children = get_terms( $term->taxonomy, array(
-              'parent'    => $term->term_id,
-              'hide_empty' => false
-          ) );
+          echo '<header class="category-header-wrapper">';
+            echo '<h1 class="page-title">' . get_cat_name($catid) . '</h1>';
+            echo '<div class="category-page-category-list">';
+              echo '<p class="parent-category"><a href="' . get_category_link($catid) . '">' . get_cat_name($catid) . '</a></p>';
+              echo '<ul>';
 
-          //var_dump($children);
+              $children = get_terms( $term->taxonomy, array(
+                'parent'    => $term->term_id,
+                'hide_empty' => true
+              ) );
+  
+              if ( $children ) {
+                foreach( $children as $subcat ) {
+                  echo '<li><a href="' . get_category_link($subcat) . '">' . $subcat->name . '</a></li>';
+              }
+            }
+
+
+            echo '</ul></div>';
+          echo '</header><hr />';
           
           // if this is parent category
           if ( $children ) { ?>
@@ -65,18 +68,34 @@ get_header(); ?>
             $subcat_image = get_field('banner', $subcat); // ACF image
           ?>
           <article id="post-2770" class="artist-pod">
-            <a href="<?php echo $subcat_link; ?>" class="artist-thumb-container" style="background-image: url(<?php echo $subcat_image['url']; ?>)"></a>
+            <a href="<?php echo $subcat_link; ?>" class="artist-thumb-container" style="background-image: url(<?php 
+
+            if ($subcat_image) {
+              echo $subcat_image['url'];
+            } else {
+              echo get_stylesheet_directory_uri() . '/img/grandstand-agency-new-2021.png';
+            }
+
+            
+            ?>)"></a>
             <a class="title-link" href="<?php echo $subcat_link; ?>"><?php echo $subcat_name; ?></a>
-            <a class="more-info" href="<?php echo subcat_link; ?>">View Acts <i class="fa fa-music"></i></a>
+            <a class="more-info" href="<?php echo $subcat_link; ?>">View Acts <i class="fa fa-music"></i></a>
           </article>
           <?php } ?>
         </div>
       </div>
       <?php
       } }
-      else { // if not a parent categorry, show the acts
-      ?>
-        
+      else { // if not a parent category, show the acts
+
+      echo '<header class="category-header-wrapper">';
+        echo '<h1 class="page-title">' . get_cat_name($catid) . '</h1>';
+        echo '<div class="category-page-category-list">';
+          echo '<p class="parent-category"><a href="' . get_category_link($parent) . '">' . $parent_name . '</a></p>';
+          echo '<p>' . $catname . '</p>';
+        echo '</div>';
+      echo '</header><hr />';
+?> 
       <?php /* Start the Loop */ ?>
       <?php if ( have_posts() ) : ?>
       <div id="acts-wrapper">
