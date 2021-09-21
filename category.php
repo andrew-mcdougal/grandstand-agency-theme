@@ -43,7 +43,7 @@ get_header(); ?>
 
               $children = get_terms( $term->taxonomy, array(
                 'parent'    => $term->term_id,
-                'hide_empty' => true
+                'hide_empty' => false
               ) );
   
               if ( $children ) {
@@ -66,12 +66,14 @@ get_header(); ?>
             $subcat_name = $subcat->name; // name
             $subcat_link = get_category_link( $subcat ); // link
             $subcat_image = get_field('banner', $subcat); // ACF image
+            $size = 'medium';
+            $thumb = $subcat_image['sizes'][ $size ];
           ?>
           <article id="post-2770" class="artist-pod">
             <a href="<?php echo $subcat_link; ?>" class="artist-thumb-container" style="background-image: url(<?php 
 
             if ($subcat_image) {
-              echo $subcat_image['url'];
+              echo esc_url($thumb);
             } else {
               echo get_stylesheet_directory_uri() . '/img/grandstand-agency-new-2021.png';
             }
@@ -104,12 +106,18 @@ get_header(); ?>
           <?php while ( have_posts() ) : the_post();
           get_template_part( 'content', get_post_format() );
           endwhile;
+
+        else: ?>
+
+        <h5>Drop us a line for more info on these types of acts!</h5>
+        <p><a href="mailto:josh@grandstandagency.com.au" target="_blank">Email us here</a></p>
+
+        <?php
+
           ?>
         </div>
       </div>
       <hr class="hr-grey hr-small" />
-      <?php the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?>
-      <?php the_posts_navigation(); ?>
       <?php endif; } } ?>
 
     </main><!-- #main -->
