@@ -157,7 +157,8 @@ const artistForm = () => {
 
   if ( $category ) {  
 	console.log('act: ', $act.textContent, ': ', $category.textContent);
-    $formInputBand.value = 'Act: ' + $act.textContent + ' / Category: ' + $category.textContent;
+    //$formInputBand.value = 'Act: ' + $act.textContent + ' / Category: ' + $category.textContent;
+    $formInputBand.value = 'Act: ' + $act.textContent;
 	      
   }
 }
