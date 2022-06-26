@@ -32,13 +32,19 @@ function load_custom_script() {
 	//wp_enqueue_script( 'equal-heights', get_stylesheet_directory_uri() . '/js/jquery.equalheights.js', '', '', true); // equal heights
 	//wp_enqueue_script( 'tabs-js', get_stylesheet_directory_uri() . '/js/jquery.easytabs.js', '', '', true ); // tabs
 	//wp_enqueue_script( 'haschange-js', get_stylesheet_directory_uri() . '/js/jquery.hashchange.min.js', '', '', true ); // hashchange
-	wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js', '', true ); // custom
+	wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js', array(), '1.1', true ); // custom
     wp_enqueue_script( 'modal-js', get_stylesheet_directory_uri() . '/assets/js/remodal.js', '', true ); // custom
     wp_enqueue_script( 'gsap-js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js', '', true ); // custom
+
+    wp_enqueue_script( 'micromodal-js', 'https://unpkg.com/micromodal/dist/micromodal.min.js', '', true ); // custom
+
+    //wp_enqueue_script( 'easytabs-js', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.easytabs/3.2.0/jquery.easytabs.min.js', '', true ); // custom
+
+    
 	
     // Styles
-    wp_enqueue_style( 'modal-style', get_stylesheet_directory_uri() . '/assets/css/remodal.css', array(), '' );
-    wp_enqueue_style( 'modal-theme-style', get_stylesheet_directory_uri() . '/assets/css/remodal-default-theme.css', array(), '' );
+    wp_enqueue_style( 'modal-style', get_stylesheet_directory_uri() . '/assets/css/remodal.css', array(), '1.0' );
+    wp_enqueue_style( 'modal-theme-style', get_stylesheet_directory_uri() . '/assets/css/remodal-default-theme.css', array(), '1.0' );
     //wp_enqueue_style( 'slick-theme-style', get_stylesheet_directory_uri() . '/css/slick-theme.css', array(), '' ); // Slick slider theme css
     //wp_enqueue_style( 'skeleton-style', get_stylesheet_directory_uri() . '/css/skeleton-lite.css?v=10', array(), '' ); // Skeleton grid
     //wp_enqueue_style( 'ontrend-styles', get_stylesheet_directory_uri() . '/css/ontrendwebsites2.css?v=4' ); // ontrend v 2
@@ -51,7 +57,7 @@ add_action( 'wp_enqueue_scripts', 'load_custom_script' );
 
 // load styles into footer
 function prefix_add_footer_styles() {
-    wp_enqueue_style( 'custom-styles', get_stylesheet_directory_uri() . '/css/combined.css', '', '1.4'); // combined all styles
+    wp_enqueue_style( 'custom-styles', get_stylesheet_directory_uri() . '/css/combined.css', '', '1.5'); // combined all styles
     wp_enqueue_style( 'fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' ); // fontawesome
 };
 add_action( 'get_footer', 'prefix_add_footer_styles' );
@@ -143,7 +149,7 @@ function the_breadcrumb() {
 
 // header email link in nav
 function add_last_nav_item($items) {
-  return $items .= '<li><button data-remodal-target="modal-contact"><img src="' . get_stylesheet_directory_uri() . '/assets/svg/music.svg"> Contact</button></li>';
+  return $items .= '<li><button data-micromodal-trigger="micro-modal-contact"><img src="' . get_stylesheet_directory_uri() . '/assets/svg/music.svg"> Contact</button></li>';
 }
 add_filter('wp_nav_menu_items','add_last_nav_item');
 
