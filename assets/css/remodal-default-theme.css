@@ -37,7 +37,8 @@
 
 /* Default theme styles of the modal dialog */
 
-.remodal {
+.remodal,
+.micro-modal {
   box-sizing: border-box;
   width: 100%;
   margin-bottom: 10px;
@@ -225,7 +226,8 @@
    ========================================================================== */
 
 @media only screen and (min-width: 641px) {
-  .remodal {
+  .remodal,
+  .micro-modal {
     max-width: 700px;
   }
 }
