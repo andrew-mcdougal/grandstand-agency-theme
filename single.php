@@ -107,8 +107,7 @@ get_header(); ?>
         </div>
         <?php endif; ?>
 
-        <button class="button-default" data-remodal-target="modal-booking">Book this act</button>
-
+        <button class="button-default" data-micromodal-trigger="micro-modal-contact">Book this act</button>
         <hr class="hr-grey">
                 
       </div>

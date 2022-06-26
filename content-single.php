@@ -13,10 +13,10 @@
   ?>
   <div class="entry-content artist-single grid-layout grid-layout--two-columns-1-2 grid-layout--gap-4">
     <div class="artist-single-content">
-      <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+      <?php the_title( '<h1 id="band_name" class="entry-title">', '</h1>' ); ?>
       <div class="artist-content">
         <?php the_content(); ?>
-        <button id="act_booking" class="button-default" data-remodal-target="modal-contact">Bookings</button>
+        <button class="button-default" data-micromodal-trigger="micro-modal-contact">Bookings</button>
         <p><a href="#tab-container">Keep scrolling for more details</a></p>
 
       </div>
