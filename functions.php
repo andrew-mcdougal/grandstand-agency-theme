@@ -33,7 +33,7 @@ function load_custom_script() {
 	//wp_enqueue_script( 'tabs-js', get_stylesheet_directory_uri() . '/js/jquery.easytabs.js', '', '', true ); // tabs
 	//wp_enqueue_script( 'haschange-js', get_stylesheet_directory_uri() . '/js/jquery.hashchange.min.js', '', '', true ); // hashchange
 	wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js', array(), '1.1', true ); // custom
-    wp_enqueue_script( 'modal-js', get_stylesheet_directory_uri() . '/assets/js/remodal.js', '', true ); // custom
+    //wp_enqueue_script( 'modal-js', get_stylesheet_directory_uri() . '/assets/js/remodal.js', '', true ); // custom
     wp_enqueue_script( 'gsap-js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js', '', true ); // custom
 
     wp_enqueue_script( 'micromodal-js', 'https://unpkg.com/micromodal/dist/micromodal.min.js', '', true ); // custom

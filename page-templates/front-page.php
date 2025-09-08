@@ -47,12 +47,12 @@ get_header(); ?>
       <div class="page-content">
         <div class="row">
           <div class="columns twelve home-content home-content-1">
-            <?php the_field('home_content', false, false); ?>
+            <?php get_field('home_content', false, false); ?>
           </div>
         </div>
         <div class="row">
           <div class="columns twelve home-content home-content-2">
-            <?php the_field('home_content_bottom'); ?>
+            <?php get_field('home_content_bottom'); ?>
           </div>
         </div>
       </div>
